@@ -1,0 +1,646 @@
+﻿Archive_Date,Hospital_Group,Hospital_HIPE,Hospital_Name,Specialty_HIPE,Specialty_Name,Case_Type,Adult_Child,Age_Profile,Time_Bands,Total
+30/01/2020,Children's Health Ireland,0000,Children's Health Ireland,0000,Small Volume Specialities,Inpatient,Child,0-15,  0-3 Months,2
+30/01/2020,Children's Health Ireland,0000,Children's Health Ireland,1906,Paed Gastro-Enterol,Day Case,Child,0-15,  0-3 Months,150
+30/01/2020,Children's Health Ireland,0000,Children's Health Ireland,1906,Paed Gastro-Enterol,Day Case,Child,0-15,  3-6 Months,100
+30/01/2020,Children's Health Ireland,0000,Children's Health Ireland,1906,Paed Gastro-Enterol,Day Case,Child,0-15,  6-9 Months,30
+30/01/2020,Children's Health Ireland,0000,Children's Health Ireland,1906,Paed Gastro-Enterol,Day Case,Child,0-15,  9-12 Months,24
+30/01/2020,Children's Health Ireland,0000,Children's Health Ireland,1906,Paed Gastro-Enterol,Day Case,Child,0-15, 12-15 Months,6
+30/01/2020,Children's Health Ireland,0000,Children's Health Ireland,1906,Paed Gastro-Enterol,Day Case,Child,16-64,  0-3 Months,5
+30/01/2020,Children's Health Ireland,0000,Children's Health Ireland,1906,Paed Gastro-Enterol,Day Case,Child,16-64,  3-6 Months,7
+30/01/2020,Children's Health Ireland,0000,Children's Health Ireland,1906,Paed Gastro-Enterol,Day Case,Child,16-64,  6-9 Months,5
+30/01/2020,Children's Health Ireland,0000,Children's Health Ireland,1906,Paed Gastro-Enterol,Day Case,Child,16-64,  9-12 Months,2
+30/01/2020,Children's Health Ireland,0000,Children's Health Ireland,1906,Paed Gastro-Enterol,Day Case,Child,16-64, 12-15 Months,1
+30/01/2020,Children's Health Ireland,0000,Children's Health Ireland,1906,Paed Gastro-Enterol,Inpatient,Child,0-15,  0-3 Months,2
+30/01/2020,Children's Health Ireland,0000,Children's Health Ireland,1906,Paed Gastro-Enterol,Inpatient,Child,0-15,  3-6 Months,1
+30/01/2020,Children's Health Ireland,0000,Children's Health Ireland,1906,Paed Gastro-Enterol,Inpatient,Child,0-15,  6-9 Months,1
+30/01/2020,Children's Health Ireland,0000,Children's Health Ireland,7200,Paediatric Surgery,Inpatient,Child,0-15,  0-3 Months,5
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,133
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,63
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,59
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,2600,General Surgery,Day Case,Adult,16-64,  9-12 Months,70
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,2600,General Surgery,Day Case,Adult,16-64, 12-15 Months,3
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,2600,General Surgery,Day Case,Adult,16-64, 15-18 Months,2
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,2600,General Surgery,Day Case,Adult,16-64,18+ Months,4
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,36
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,25
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,2600,General Surgery,Day Case,Adult,65+,  6-9 Months,7
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,2600,General Surgery,Day Case,Adult,65+,  9-12 Months,8
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,2600,General Surgery,Day Case,Adult,65+, 12-15 Months,1
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,2600,General Surgery,Day Case,Child,0-15,  3-6 Months,1
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,2600,General Surgery,Inpatient,Adult,16-64,  0-3 Months,1
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,2600,General Surgery,Inpatient,Adult,16-64,  3-6 Months,1
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,5000,General Medicine,Day Case,Adult,16-64,  0-3 Months,207
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,5000,General Medicine,Day Case,Adult,16-64,  3-6 Months,153
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,5000,General Medicine,Day Case,Adult,16-64,  6-9 Months,95
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,5000,General Medicine,Day Case,Adult,16-64,  9-12 Months,81
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,5000,General Medicine,Day Case,Adult,16-64, 12-15 Months,10
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,5000,General Medicine,Day Case,Adult,16-64, 15-18 Months,1
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,5000,General Medicine,Day Case,Adult,16-64,18+ Months,4
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,5000,General Medicine,Day Case,Adult,65+,  0-3 Months,59
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,5000,General Medicine,Day Case,Adult,65+,  3-6 Months,56
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,5000,General Medicine,Day Case,Adult,65+,  6-9 Months,27
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,5000,General Medicine,Day Case,Adult,65+,  9-12 Months,13
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,5000,General Medicine,Day Case,Adult,65+, 12-15 Months,3
+30/01/2020,Dublin Midlands Hospital Group,0102,Naas General Hospital,5000,General Medicine,Day Case,Adult,65+,18+ Months,1
+30/01/2020,Dublin Midlands Hospital Group,0201,Midland Regional Hospital Portlaoise,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,118
+30/01/2020,Dublin Midlands Hospital Group,0201,Midland Regional Hospital Portlaoise,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,78
+30/01/2020,Dublin Midlands Hospital Group,0201,Midland Regional Hospital Portlaoise,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,53
+30/01/2020,Dublin Midlands Hospital Group,0201,Midland Regional Hospital Portlaoise,2600,General Surgery,Day Case,Adult,16-64,  9-12 Months,32
+30/01/2020,Dublin Midlands Hospital Group,0201,Midland Regional Hospital Portlaoise,2600,General Surgery,Day Case,Adult,16-64, 12-15 Months,17
+30/01/2020,Dublin Midlands Hospital Group,0201,Midland Regional Hospital Portlaoise,2600,General Surgery,Day Case,Adult,16-64,18+ Months,1
+30/01/2020,Dublin Midlands Hospital Group,0201,Midland Regional Hospital Portlaoise,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,40
+30/01/2020,Dublin Midlands Hospital Group,0201,Midland Regional Hospital Portlaoise,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,20
+30/01/2020,Dublin Midlands Hospital Group,0201,Midland Regional Hospital Portlaoise,2600,General Surgery,Day Case,Adult,65+,  6-9 Months,17
+30/01/2020,Dublin Midlands Hospital Group,0201,Midland Regional Hospital Portlaoise,2600,General Surgery,Day Case,Adult,65+,  9-12 Months,6
+30/01/2020,Dublin Midlands Hospital Group,0201,Midland Regional Hospital Portlaoise,2600,General Surgery,Day Case,Adult,65+, 12-15 Months,8
+30/01/2020,Dublin Midlands Hospital Group,0201,Midland Regional Hospital Portlaoise,2600,General Surgery,Inpatient,Adult,16-64,  3-6 Months,1
+30/01/2020,Dublin Midlands Hospital Group,0201,Midland Regional Hospital Portlaoise,2600,General Surgery,Inpatient,Adult,16-64, 12-15 Months,1
+30/01/2020,Dublin Midlands Hospital Group,0201,Midland Regional Hospital Portlaoise,2600,General Surgery,Inpatient,Adult,65+,  0-3 Months,1
+30/01/2020,Dublin Midlands Hospital Group,0203,Midland Regional Hospital Tullamore,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,81
+30/01/2020,Dublin Midlands Hospital Group,0203,Midland Regional Hospital Tullamore,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,26
+30/01/2020,Dublin Midlands Hospital Group,0203,Midland Regional Hospital Tullamore,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,5
+30/01/2020,Dublin Midlands Hospital Group,0203,Midland Regional Hospital Tullamore,2600,General Surgery,Day Case,Adult,16-64, 15-18 Months,1
+30/01/2020,Dublin Midlands Hospital Group,0203,Midland Regional Hospital Tullamore,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,48
+30/01/2020,Dublin Midlands Hospital Group,0203,Midland Regional Hospital Tullamore,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,18
+30/01/2020,Dublin Midlands Hospital Group,0203,Midland Regional Hospital Tullamore,2600,General Surgery,Day Case,Adult,65+,  6-9 Months,7
+30/01/2020,Dublin Midlands Hospital Group,0203,Midland Regional Hospital Tullamore,5000,General Medicine,Day Case,Adult,16-64,  0-3 Months,45
+30/01/2020,Dublin Midlands Hospital Group,0203,Midland Regional Hospital Tullamore,5000,General Medicine,Day Case,Adult,16-64,  3-6 Months,21
+30/01/2020,Dublin Midlands Hospital Group,0203,Midland Regional Hospital Tullamore,5000,General Medicine,Day Case,Adult,16-64,  6-9 Months,4
+30/01/2020,Dublin Midlands Hospital Group,0203,Midland Regional Hospital Tullamore,5000,General Medicine,Day Case,Adult,16-64,  9-12 Months,2
+30/01/2020,Dublin Midlands Hospital Group,0203,Midland Regional Hospital Tullamore,5000,General Medicine,Day Case,Adult,65+,  0-3 Months,12
+30/01/2020,Dublin Midlands Hospital Group,0203,Midland Regional Hospital Tullamore,5000,General Medicine,Day Case,Adult,65+,  3-6 Months,5
+30/01/2020,Dublin Midlands Hospital Group,0203,Midland Regional Hospital Tullamore,5000,General Medicine,Day Case,Adult,65+,  6-9 Months,3
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,0000,Small Volume Specialities,Day Case,Adult,65+,  0-3 Months,1
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,0000,Small Volume Specialities,Day Case,Adult,65+,  3-6 Months,1
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,0000,Small Volume Specialities,Day Case,Adult,65+,  6-9 Months,1
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  0-3 Months,152
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  3-6 Months,64
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  6-9 Months,45
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  9-12 Months,8
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  0-3 Months,64
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  3-6 Months,34
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  6-9 Months,6
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,0700,Gastro-Enterology,Inpatient,Adult,16-64,  0-3 Months,1
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,97
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,75
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,10
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,2600,General Surgery,Day Case,Adult,16-64,  9-12 Months,1
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,2600,General Surgery,Day Case,Adult,16-64,18+ Months,1
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,38
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,53
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,2600,General Surgery,Day Case,Adult,65+,  6-9 Months,7
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,2600,General Surgery,Day Case,Adult,65+,  9-12 Months,3
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,2600,General Surgery,Inpatient,Adult,16-64,  0-3 Months,4
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,2600,General Surgery,Inpatient,Adult,16-64,  3-6 Months,2
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,2600,General Surgery,Inpatient,Adult,65+,  0-3 Months,1
+30/01/2020,Dublin Midlands Hospital Group,0904,St. James's Hospital,2600,General Surgery,Inpatient,Adult,65+,  6-9 Months,1
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  0-3 Months,471
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  3-6 Months,481
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  6-9 Months,368
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  9-12 Months,329
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64, 12-15 Months,127
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64, 15-18 Months,51
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,18+ Months,12
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  0-3 Months,185
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  3-6 Months,165
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  6-9 Months,117
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  9-12 Months,108
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,0700,Gastro-Enterology,Day Case,Adult,65+, 12-15 Months,41
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,0700,Gastro-Enterology,Day Case,Adult,65+, 15-18 Months,19
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,18+ Months,3
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,0700,Gastro-Enterology,Inpatient,Adult,16-64, 12-15 Months,1
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,0700,Gastro-Enterology,Inpatient,Adult,65+,  6-9 Months,1
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,158
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,108
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,119
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,2600,General Surgery,Day Case,Adult,16-64,  9-12 Months,98
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,2600,General Surgery,Day Case,Adult,16-64, 12-15 Months,29
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,2600,General Surgery,Day Case,Adult,16-64, 15-18 Months,8
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,2600,General Surgery,Day Case,Adult,16-64,18+ Months,1
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,58
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,66
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,2600,General Surgery,Day Case,Adult,65+,  6-9 Months,41
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,2600,General Surgery,Day Case,Adult,65+,  9-12 Months,29
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,2600,General Surgery,Day Case,Adult,65+, 12-15 Months,7
+30/01/2020,Dublin Midlands Hospital Group,1270,Tallaght University Hospital,2600,General Surgery,Day Case,Adult,65+, 15-18 Months,3
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  0-3 Months,53
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  3-6 Months,46
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  6-9 Months,16
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  9-12 Months,11
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64, 12-15 Months,7
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64, 15-18 Months,3
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,18+ Months,1
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  0-3 Months,18
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  3-6 Months,15
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  6-9 Months,8
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  9-12 Months,3
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,0700,Gastro-Enterology,Day Case,Adult,65+, 12-15 Months,4
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,0700,Gastro-Enterology,Day Case,Adult,65+, 15-18 Months,2
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,18+ Months,1
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,26
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,32
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,16
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,2600,General Surgery,Day Case,Adult,16-64,  9-12 Months,6
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,2600,General Surgery,Day Case,Adult,16-64, 12-15 Months,2
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,2600,General Surgery,Day Case,Adult,16-64, 15-18 Months,3
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,11
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,9
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,2600,General Surgery,Day Case,Adult,65+,  6-9 Months,4
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,2600,General Surgery,Day Case,Adult,65+, 12-15 Months,4
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,2600,General Surgery,Day Case,Adult,65+, 15-18 Months,2
+30/01/2020,Ireland East Hospital Group,0101,St. Columcille's Hospital,2600,General Surgery,Day Case,Adult,65+,18+ Months,2
+30/01/2020,Ireland East Hospital Group,0202,Midland Regional Hospital Mullingar,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,103
+30/01/2020,Ireland East Hospital Group,0202,Midland Regional Hospital Mullingar,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,125
+30/01/2020,Ireland East Hospital Group,0202,Midland Regional Hospital Mullingar,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,61
+30/01/2020,Ireland East Hospital Group,0202,Midland Regional Hospital Mullingar,2600,General Surgery,Day Case,Adult,16-64,  9-12 Months,5
+30/01/2020,Ireland East Hospital Group,0202,Midland Regional Hospital Mullingar,2600,General Surgery,Day Case,Adult,16-64, 12-15 Months,1
+30/01/2020,Ireland East Hospital Group,0202,Midland Regional Hospital Mullingar,2600,General Surgery,Day Case,Adult,16-64, 15-18 Months,1
+30/01/2020,Ireland East Hospital Group,0202,Midland Regional Hospital Mullingar,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,33
+30/01/2020,Ireland East Hospital Group,0202,Midland Regional Hospital Mullingar,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,34
+30/01/2020,Ireland East Hospital Group,0202,Midland Regional Hospital Mullingar,2600,General Surgery,Day Case,Adult,65+,  6-9 Months,32
+30/01/2020,Ireland East Hospital Group,0202,Midland Regional Hospital Mullingar,2600,General Surgery,Day Case,Adult,65+,  9-12 Months,3
+30/01/2020,Ireland East Hospital Group,0202,Midland Regional Hospital Mullingar,2600,General Surgery,Inpatient,Adult,16-64,  3-6 Months,1
+30/01/2020,Ireland East Hospital Group,0202,Midland Regional Hospital Mullingar,2600,General Surgery,Inpatient,Adult,16-64,  6-9 Months,1
+30/01/2020,Ireland East Hospital Group,0202,Midland Regional Hospital Mullingar,2600,General Surgery,Inpatient,Child,0-15,  0-3 Months,1
+30/01/2020,Ireland East Hospital Group,0202,Midland Regional Hospital Mullingar,2600,General Surgery,Inpatient,Child,0-15,  3-6 Months,2
+30/01/2020,Ireland East Hospital Group,0202,Midland Regional Hospital Mullingar,5000,General Medicine,Day Case,Adult,16-64,  0-3 Months,80
+30/01/2020,Ireland East Hospital Group,0202,Midland Regional Hospital Mullingar,5000,General Medicine,Day Case,Adult,16-64,  3-6 Months,111
+30/01/2020,Ireland East Hospital Group,0202,Midland Regional Hospital Mullingar,5000,General Medicine,Day Case,Adult,16-64,  6-9 Months,29
+30/01/2020,Ireland East Hospital Group,0202,Midland Regional Hospital Mullingar,5000,General Medicine,Day Case,Adult,65+,  0-3 Months,34
+30/01/2020,Ireland East Hospital Group,0202,Midland Regional Hospital Mullingar,5000,General Medicine,Day Case,Adult,65+,  3-6 Months,55
+30/01/2020,Ireland East Hospital Group,0202,Midland Regional Hospital Mullingar,5000,General Medicine,Day Case,Adult,65+,  6-9 Months,14
+30/01/2020,Ireland East Hospital Group,0202,Midland Regional Hospital Mullingar,5000,General Medicine,Day Case,Adult,65+,  9-12 Months,1
+30/01/2020,Ireland East Hospital Group,0202,Midland Regional Hospital Mullingar,5000,General Medicine,Day Case,Child,0-15,  0-3 Months,1
+30/01/2020,Ireland East Hospital Group,0202,Midland Regional Hospital Mullingar,5000,General Medicine,Day Case,Child,0-15,  6-9 Months,1
+30/01/2020,Ireland East Hospital Group,0403,Our Lady's Hospital Navan,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,82
+30/01/2020,Ireland East Hospital Group,0403,Our Lady's Hospital Navan,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,15
+30/01/2020,Ireland East Hospital Group,0403,Our Lady's Hospital Navan,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,6
+30/01/2020,Ireland East Hospital Group,0403,Our Lady's Hospital Navan,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,26
+30/01/2020,Ireland East Hospital Group,0403,Our Lady's Hospital Navan,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,12
+30/01/2020,Ireland East Hospital Group,0403,Our Lady's Hospital Navan,2600,General Surgery,Day Case,Adult,65+,  6-9 Months,2
+30/01/2020,Ireland East Hospital Group,0403,Our Lady's Hospital Navan,2600,General Surgery,Inpatient,Adult,16-64,  0-3 Months,1
+30/01/2020,Ireland East Hospital Group,0403,Our Lady's Hospital Navan,5000,General Medicine,Day Case,Adult,16-64,  0-3 Months,4
+30/01/2020,Ireland East Hospital Group,0403,Our Lady's Hospital Navan,5000,General Medicine,Day Case,Adult,16-64,  3-6 Months,1
+30/01/2020,Ireland East Hospital Group,0403,Our Lady's Hospital Navan,5000,General Medicine,Day Case,Adult,16-64,  6-9 Months,2
+30/01/2020,Ireland East Hospital Group,0403,Our Lady's Hospital Navan,5000,General Medicine,Day Case,Adult,65+,  0-3 Months,7
+30/01/2020,Ireland East Hospital Group,0403,Our Lady's Hospital Navan,5000,General Medicine,Day Case,Adult,65+,  3-6 Months,1
+30/01/2020,Ireland East Hospital Group,0403,Our Lady's Hospital Navan,5000,General Medicine,Inpatient,Adult,16-64,  6-9 Months,1
+30/01/2020,Ireland East Hospital Group,0601,St. Luke's General Hospital Kilkenny,0000,Small Volume Specialities,Day Case,Adult,16-64,  0-3 Months,1
+30/01/2020,Ireland East Hospital Group,0601,St. Luke's General Hospital Kilkenny,0000,Small Volume Specialities,Day Case,Adult,65+,  0-3 Months,3
+30/01/2020,Ireland East Hospital Group,0601,St. Luke's General Hospital Kilkenny,0700,Gastro-Enterology,Day Case,Adult,16-64,  0-3 Months,87
+30/01/2020,Ireland East Hospital Group,0601,St. Luke's General Hospital Kilkenny,0700,Gastro-Enterology,Day Case,Adult,16-64,  3-6 Months,50
+30/01/2020,Ireland East Hospital Group,0601,St. Luke's General Hospital Kilkenny,0700,Gastro-Enterology,Day Case,Adult,16-64,  6-9 Months,1
+30/01/2020,Ireland East Hospital Group,0601,St. Luke's General Hospital Kilkenny,0700,Gastro-Enterology,Day Case,Adult,16-64,  9-12 Months,1
+30/01/2020,Ireland East Hospital Group,0601,St. Luke's General Hospital Kilkenny,0700,Gastro-Enterology,Day Case,Adult,65+,  0-3 Months,39
+30/01/2020,Ireland East Hospital Group,0601,St. Luke's General Hospital Kilkenny,0700,Gastro-Enterology,Day Case,Adult,65+,  3-6 Months,20
+30/01/2020,Ireland East Hospital Group,0601,St. Luke's General Hospital Kilkenny,1900,Paediatrics,Day Case,Child,0-15,  0-3 Months,4
+30/01/2020,Ireland East Hospital Group,0601,St. Luke's General Hospital Kilkenny,1900,Paediatrics,Day Case,Child,0-15,  3-6 Months,1
+30/01/2020,Ireland East Hospital Group,0601,St. Luke's General Hospital Kilkenny,1900,Paediatrics,Day Case,Child,0-15,  9-12 Months,1
+30/01/2020,Ireland East Hospital Group,0601,St. Luke's General Hospital Kilkenny,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,237
+30/01/2020,Ireland East Hospital Group,0601,St. Luke's General Hospital Kilkenny,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,105
+30/01/2020,Ireland East Hospital Group,0601,St. Luke's General Hospital Kilkenny,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,61
+30/01/2020,Ireland East Hospital Group,0601,St. Luke's General Hospital Kilkenny,2600,General Surgery,Day Case,Adult,16-64,  9-12 Months,16
+30/01/2020,Ireland East Hospital Group,0601,St. Luke's General Hospital Kilkenny,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,89
+30/01/2020,Ireland East Hospital Group,0601,St. Luke's General Hospital Kilkenny,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,37
+30/01/2020,Ireland East Hospital Group,0601,St. Luke's General Hospital Kilkenny,2600,General Surgery,Day Case,Adult,65+,  6-9 Months,17
+30/01/2020,Ireland East Hospital Group,0601,St. Luke's General Hospital Kilkenny,2600,General Surgery,Day Case,Adult,65+,  9-12 Months,1
+30/01/2020,Ireland East Hospital Group,0605,Wexford General Hospital,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,128
+30/01/2020,Ireland East Hospital Group,0605,Wexford General Hospital,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,79
+30/01/2020,Ireland East Hospital Group,0605,Wexford General Hospital,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,2
+30/01/2020,Ireland East Hospital Group,0605,Wexford General Hospital,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,49
+30/01/2020,Ireland East Hospital Group,0605,Wexford General Hospital,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,27
+30/01/2020,Ireland East Hospital Group,0605,Wexford General Hospital,2600,General Surgery,Day Case,Adult,65+,  6-9 Months,4
+30/01/2020,Ireland East Hospital Group,0605,Wexford General Hospital,2600,General Surgery,Inpatient,Adult,16-64,  0-3 Months,2
+30/01/2020,Ireland East Hospital Group,0605,Wexford General Hospital,5000,General Medicine,Day Case,Adult,16-64,  0-3 Months,75
+30/01/2020,Ireland East Hospital Group,0605,Wexford General Hospital,5000,General Medicine,Day Case,Adult,16-64,  3-6 Months,7
+30/01/2020,Ireland East Hospital Group,0605,Wexford General Hospital,5000,General Medicine,Day Case,Adult,65+,  0-3 Months,28
+30/01/2020,Ireland East Hospital Group,0605,Wexford General Hospital,5000,General Medicine,Day Case,Adult,65+,  3-6 Months,3
+30/01/2020,Ireland East Hospital Group,0908,Mater Misericordiae University Hospital,0000,Small Volume Specialities,Day Case,Adult,16-64,  3-6 Months,4
+30/01/2020,Ireland East Hospital Group,0908,Mater Misericordiae University Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  0-3 Months,531
+30/01/2020,Ireland East Hospital Group,0908,Mater Misericordiae University Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  3-6 Months,173
+30/01/2020,Ireland East Hospital Group,0908,Mater Misericordiae University Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  6-9 Months,2
+30/01/2020,Ireland East Hospital Group,0908,Mater Misericordiae University Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  9-12 Months,3
+30/01/2020,Ireland East Hospital Group,0908,Mater Misericordiae University Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  0-3 Months,158
+30/01/2020,Ireland East Hospital Group,0908,Mater Misericordiae University Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  3-6 Months,53
+30/01/2020,Ireland East Hospital Group,0908,Mater Misericordiae University Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  6-9 Months,1
+30/01/2020,Ireland East Hospital Group,0908,Mater Misericordiae University Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  9-12 Months,1
+30/01/2020,Ireland East Hospital Group,0908,Mater Misericordiae University Hospital,0700,Gastro-Enterology,Inpatient,Adult,16-64,  0-3 Months,2
+30/01/2020,Ireland East Hospital Group,0908,Mater Misericordiae University Hospital,0700,Gastro-Enterology,Inpatient,Adult,16-64,  3-6 Months,1
+30/01/2020,Ireland East Hospital Group,0908,Mater Misericordiae University Hospital,0700,Gastro-Enterology,Inpatient,Adult,65+,  3-6 Months,1
+30/01/2020,Ireland East Hospital Group,0908,Mater Misericordiae University Hospital,2602,Gastro-Intestinal Surgery,Day Case,Adult,16-64,  0-3 Months,4
+30/01/2020,Ireland East Hospital Group,0908,Mater Misericordiae University Hospital,2602,Gastro-Intestinal Surgery,Day Case,Adult,16-64,  3-6 Months,3
+30/01/2020,Ireland East Hospital Group,0908,Mater Misericordiae University Hospital,2602,Gastro-Intestinal Surgery,Day Case,Adult,16-64,  6-9 Months,1
+30/01/2020,Ireland East Hospital Group,0908,Mater Misericordiae University Hospital,2602,Gastro-Intestinal Surgery,Day Case,Adult,16-64,18+ Months,1
+30/01/2020,Ireland East Hospital Group,0908,Mater Misericordiae University Hospital,2602,Gastro-Intestinal Surgery,Day Case,Adult,65+,  0-3 Months,5
+30/01/2020,Ireland East Hospital Group,0908,Mater Misericordiae University Hospital,2602,Gastro-Intestinal Surgery,Day Case,Adult,65+,  3-6 Months,1
+30/01/2020,Ireland East Hospital Group,0908,Mater Misericordiae University Hospital,2602,Gastro-Intestinal Surgery,Day Case,Adult,65+,  6-9 Months,3
+30/01/2020,Ireland East Hospital Group,0908,Mater Misericordiae University Hospital,2602,Gastro-Intestinal Surgery,Day Case,Adult,65+, 12-15 Months,1
+30/01/2020,Ireland East Hospital Group,0908,Mater Misericordiae University Hospital,2602,Gastro-Intestinal Surgery,Day Case,Adult,65+, 15-18 Months,1
+30/01/2020,Ireland East Hospital Group,0908,Mater Misericordiae University Hospital,2602,Gastro-Intestinal Surgery,Inpatient,Adult,65+,  6-9 Months,1
+30/01/2020,Ireland East Hospital Group,0910,St. Vincent's University Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  0-3 Months,54
+30/01/2020,Ireland East Hospital Group,0910,St. Vincent's University Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  3-6 Months,2
+30/01/2020,Ireland East Hospital Group,0910,St. Vincent's University Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  0-3 Months,17
+30/01/2020,Ireland East Hospital Group,0910,St. Vincent's University Hospital,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,9
+30/01/2020,Ireland East Hospital Group,0910,St. Vincent's University Hospital,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,2
+30/01/2020,Ireland East Hospital Group,0910,St. Vincent's University Hospital,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,8
+30/01/2020,Ireland East Hospital Group,0910,St. Vincent's University Hospital,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,1
+30/01/2020,Ireland East Hospital Group,0912,St. Michael's Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  0-3 Months,44
+30/01/2020,Ireland East Hospital Group,0912,St. Michael's Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  3-6 Months,3
+30/01/2020,Ireland East Hospital Group,0912,St. Michael's Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  6-9 Months,2
+30/01/2020,Ireland East Hospital Group,0912,St. Michael's Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  9-12 Months,1
+30/01/2020,Ireland East Hospital Group,0912,St. Michael's Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  0-3 Months,10
+30/01/2020,Ireland East Hospital Group,0912,St. Michael's Hospital,0700,Gastro-Enterology,Inpatient,Adult,65+,  3-6 Months,1
+30/01/2020,Ireland East Hospital Group,0912,St. Michael's Hospital,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,165
+30/01/2020,Ireland East Hospital Group,0912,St. Michael's Hospital,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,122
+30/01/2020,Ireland East Hospital Group,0912,St. Michael's Hospital,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,66
+30/01/2020,Ireland East Hospital Group,0912,St. Michael's Hospital,2600,General Surgery,Day Case,Adult,16-64,  9-12 Months,16
+30/01/2020,Ireland East Hospital Group,0912,St. Michael's Hospital,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,30
+30/01/2020,Ireland East Hospital Group,0912,St. Michael's Hospital,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,18
+30/01/2020,Ireland East Hospital Group,0912,St. Michael's Hospital,2600,General Surgery,Day Case,Adult,65+,  6-9 Months,7
+30/01/2020,Ireland East Hospital Group,0912,St. Michael's Hospital,2600,General Surgery,Day Case,Adult,65+,  9-12 Months,4
+30/01/2020,Ireland East Hospital Group,0912,St. Michael's Hospital,2600,General Surgery,Inpatient,Adult,65+,  0-3 Months,2
+30/01/2020,RCSI  Hospitals Group,0108,Connolly Hospital Blanchardstown,0700,Gastro-Enterology,Day Case,Adult,16-64,  0-3 Months,226
+30/01/2020,RCSI  Hospitals Group,0108,Connolly Hospital Blanchardstown,0700,Gastro-Enterology,Day Case,Adult,16-64,  3-6 Months,1
+30/01/2020,RCSI  Hospitals Group,0108,Connolly Hospital Blanchardstown,0700,Gastro-Enterology,Day Case,Adult,65+,  0-3 Months,47
+30/01/2020,RCSI  Hospitals Group,0108,Connolly Hospital Blanchardstown,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,133
+30/01/2020,RCSI  Hospitals Group,0108,Connolly Hospital Blanchardstown,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,1
+30/01/2020,RCSI  Hospitals Group,0108,Connolly Hospital Blanchardstown,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,32
+30/01/2020,RCSI  Hospitals Group,0108,Connolly Hospital Blanchardstown,2600,General Surgery,Inpatient,Adult,16-64,  0-3 Months,1
+30/01/2020,RCSI  Hospitals Group,0108,Connolly Hospital Blanchardstown,5000,General Medicine,Day Case,Adult,16-64,  0-3 Months,35
+30/01/2020,RCSI  Hospitals Group,0108,Connolly Hospital Blanchardstown,5000,General Medicine,Day Case,Adult,16-64,  3-6 Months,1
+30/01/2020,RCSI  Hospitals Group,0108,Connolly Hospital Blanchardstown,5000,General Medicine,Day Case,Adult,65+,  0-3 Months,10
+30/01/2020,RCSI  Hospitals Group,0400,Louth County Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  0-3 Months,4
+30/01/2020,RCSI  Hospitals Group,0400,Louth County Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  0-3 Months,2
+30/01/2020,RCSI  Hospitals Group,0400,Louth County Hospital,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,255
+30/01/2020,RCSI  Hospitals Group,0400,Louth County Hospital,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,37
+30/01/2020,RCSI  Hospitals Group,0400,Louth County Hospital,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,91
+30/01/2020,RCSI  Hospitals Group,0400,Louth County Hospital,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,10
+30/01/2020,RCSI  Hospitals Group,0400,Louth County Hospital,5000,General Medicine,Day Case,Adult,16-64,  0-3 Months,148
+30/01/2020,RCSI  Hospitals Group,0400,Louth County Hospital,5000,General Medicine,Day Case,Adult,16-64,  3-6 Months,25
+30/01/2020,RCSI  Hospitals Group,0400,Louth County Hospital,5000,General Medicine,Day Case,Adult,65+,  0-3 Months,48
+30/01/2020,RCSI  Hospitals Group,0400,Louth County Hospital,5000,General Medicine,Day Case,Adult,65+,  3-6 Months,5
+30/01/2020,RCSI  Hospitals Group,0400,Louth County Hospital,5000,General Medicine,Inpatient,Adult,16-64,  0-3 Months,1
+30/01/2020,RCSI  Hospitals Group,0402,Cavan General Hospital,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,458
+30/01/2020,RCSI  Hospitals Group,0402,Cavan General Hospital,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,1
+30/01/2020,RCSI  Hospitals Group,0402,Cavan General Hospital,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,117
+30/01/2020,RCSI  Hospitals Group,0402,Cavan General Hospital,2600,General Surgery,Day Case,Child,0-15,  0-3 Months,1
+30/01/2020,RCSI  Hospitals Group,0402,Cavan General Hospital,2600,General Surgery,Inpatient,Adult,16-64,  0-3 Months,1
+30/01/2020,RCSI  Hospitals Group,0402,Cavan General Hospital,5000,General Medicine,Day Case,Adult,16-64,  0-3 Months,5
+30/01/2020,RCSI  Hospitals Group,0402,Cavan General Hospital,5000,General Medicine,Day Case,Adult,65+,  0-3 Months,6
+30/01/2020,RCSI  Hospitals Group,0922,Our Lady of Lourdes Hospital Drogheda,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,114
+30/01/2020,RCSI  Hospitals Group,0922,Our Lady of Lourdes Hospital Drogheda,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,16
+30/01/2020,RCSI  Hospitals Group,0922,Our Lady of Lourdes Hospital Drogheda,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,52
+30/01/2020,RCSI  Hospitals Group,0922,Our Lady of Lourdes Hospital Drogheda,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,8
+30/01/2020,RCSI  Hospitals Group,0922,Our Lady of Lourdes Hospital Drogheda,5000,General Medicine,Day Case,Adult,16-64,  0-3 Months,7
+30/01/2020,RCSI  Hospitals Group,0922,Our Lady of Lourdes Hospital Drogheda,5000,General Medicine,Day Case,Adult,16-64,  3-6 Months,1
+30/01/2020,RCSI  Hospitals Group,0922,Our Lady of Lourdes Hospital Drogheda,5000,General Medicine,Day Case,Adult,65+,  0-3 Months,4
+30/01/2020,RCSI  Hospitals Group,0923,Beaumont Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  0-3 Months,109
+30/01/2020,RCSI  Hospitals Group,0923,Beaumont Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  0-3 Months,23
+30/01/2020,RCSI  Hospitals Group,0923,Beaumont Hospital,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,41
+30/01/2020,RCSI  Hospitals Group,0923,Beaumont Hospital,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,1
+30/01/2020,RCSI  Hospitals Group,0923,Beaumont Hospital,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,9
+30/01/2020,RCSI  Hospitals Group,0923,Beaumont Hospital,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,1
+30/01/2020,RCSI  Hospitals Group,0923,Beaumont Hospital,2600,General Surgery,Inpatient,Adult,65+,  3-6 Months,2
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,0000,Small Volume Specialities,Day Case,Adult,65+,  0-3 Months,1
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,177
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,202
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,157
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,2600,General Surgery,Day Case,Adult,16-64,  9-12 Months,158
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,2600,General Surgery,Day Case,Adult,16-64, 12-15 Months,59
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,2600,General Surgery,Day Case,Adult,16-64, 15-18 Months,1
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,2600,General Surgery,Day Case,Adult,16-64,18+ Months,1
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,61
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,72
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,2600,General Surgery,Day Case,Adult,65+,  6-9 Months,58
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,2600,General Surgery,Day Case,Adult,65+,  9-12 Months,57
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,2600,General Surgery,Day Case,Adult,65+, 12-15 Months,14
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,2600,General Surgery,Inpatient,Adult,65+,  0-3 Months,1
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,5000,General Medicine,Day Case,Adult,16-64,  0-3 Months,234
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,5000,General Medicine,Day Case,Adult,16-64,  3-6 Months,130
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,5000,General Medicine,Day Case,Adult,16-64,  6-9 Months,103
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,5000,General Medicine,Day Case,Adult,16-64,  9-12 Months,98
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,5000,General Medicine,Day Case,Adult,16-64, 12-15 Months,94
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,5000,General Medicine,Day Case,Adult,16-64, 15-18 Months,27
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,5000,General Medicine,Day Case,Adult,65+,  0-3 Months,73
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,5000,General Medicine,Day Case,Adult,65+,  3-6 Months,29
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,5000,General Medicine,Day Case,Adult,65+,  6-9 Months,32
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,5000,General Medicine,Day Case,Adult,65+,  9-12 Months,37
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,5000,General Medicine,Day Case,Adult,65+, 12-15 Months,25
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,5000,General Medicine,Day Case,Adult,65+, 15-18 Months,8
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,5000,General Medicine,Day Case,Child,0-15,  0-3 Months,2
+30/01/2020,Saolta University Health Care Group,0500,Letterkenny University Hospital,5000,General Medicine,Day Case,Child,0-15,  6-9 Months,1
+30/01/2020,Saolta University Health Care Group,0501,Sligo University Hospital,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,145
+30/01/2020,Saolta University Health Care Group,0501,Sligo University Hospital,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,99
+30/01/2020,Saolta University Health Care Group,0501,Sligo University Hospital,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,25
+30/01/2020,Saolta University Health Care Group,0501,Sligo University Hospital,2600,General Surgery,Day Case,Adult,16-64,  9-12 Months,2
+30/01/2020,Saolta University Health Care Group,0501,Sligo University Hospital,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,51
+30/01/2020,Saolta University Health Care Group,0501,Sligo University Hospital,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,36
+30/01/2020,Saolta University Health Care Group,0501,Sligo University Hospital,2600,General Surgery,Day Case,Adult,65+,  6-9 Months,7
+30/01/2020,Saolta University Health Care Group,0501,Sligo University Hospital,2600,General Surgery,Day Case,Adult,65+,  9-12 Months,3
+30/01/2020,Saolta University Health Care Group,0501,Sligo University Hospital,2600,General Surgery,Day Case,Adult,65+, 12-15 Months,1
+30/01/2020,Saolta University Health Care Group,0501,Sligo University Hospital,2600,General Surgery,Inpatient,Adult,16-64,  0-3 Months,1
+30/01/2020,Saolta University Health Care Group,0501,Sligo University Hospital,5000,General Medicine,Day Case,Adult,16-64,  0-3 Months,118
+30/01/2020,Saolta University Health Care Group,0501,Sligo University Hospital,5000,General Medicine,Day Case,Adult,16-64,  3-6 Months,10
+30/01/2020,Saolta University Health Care Group,0501,Sligo University Hospital,5000,General Medicine,Day Case,Adult,16-64,  6-9 Months,4
+30/01/2020,Saolta University Health Care Group,0501,Sligo University Hospital,5000,General Medicine,Day Case,Adult,65+,  0-3 Months,54
+30/01/2020,Saolta University Health Care Group,0501,Sligo University Hospital,5000,General Medicine,Day Case,Adult,65+,  3-6 Months,8
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,0700,Gastro-Enterology,Day Case,Adult,16-64,  0-3 Months,161
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,0700,Gastro-Enterology,Day Case,Adult,16-64,  3-6 Months,103
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,0700,Gastro-Enterology,Day Case,Adult,16-64,  6-9 Months,55
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,0700,Gastro-Enterology,Day Case,Adult,16-64,  9-12 Months,8
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,0700,Gastro-Enterology,Day Case,Adult,16-64, 12-15 Months,3
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,0700,Gastro-Enterology,Day Case,Adult,16-64, 15-18 Months,2
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,0700,Gastro-Enterology,Day Case,Adult,16-64,18+ Months,45
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,0700,Gastro-Enterology,Day Case,Adult,65+,  0-3 Months,68
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,0700,Gastro-Enterology,Day Case,Adult,65+,  3-6 Months,35
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,0700,Gastro-Enterology,Day Case,Adult,65+,  6-9 Months,21
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,0700,Gastro-Enterology,Day Case,Adult,65+,  9-12 Months,3
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,0700,Gastro-Enterology,Day Case,Adult,65+, 12-15 Months,1
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,0700,Gastro-Enterology,Day Case,Adult,65+,18+ Months,12
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,0700,Gastro-Enterology,Day Case,Child,0-15,  3-6 Months,1
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,0700,Gastro-Enterology,Day Case,Child,0-15,18+ Months,1
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,163
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,114
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,57
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,2600,General Surgery,Day Case,Adult,16-64,  9-12 Months,33
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,2600,General Surgery,Day Case,Adult,16-64, 12-15 Months,19
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,2600,General Surgery,Day Case,Adult,16-64, 15-18 Months,22
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,2600,General Surgery,Day Case,Adult,16-64,18+ Months,54
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,52
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,71
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,2600,General Surgery,Day Case,Adult,65+,  6-9 Months,39
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,2600,General Surgery,Day Case,Adult,65+,  9-12 Months,40
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,2600,General Surgery,Day Case,Adult,65+, 12-15 Months,36
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,2600,General Surgery,Day Case,Adult,65+, 15-18 Months,19
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,2600,General Surgery,Day Case,Adult,65+,18+ Months,39
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,2600,General Surgery,Day Case,Child,0-15,  3-6 Months,1
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,2600,General Surgery,Inpatient,Adult,16-64,  0-3 Months,1
+30/01/2020,Saolta University Health Care Group,0800,Galway University Hospitals,2600,General Surgery,Inpatient,Adult,65+,  9-12 Months,1
+30/01/2020,Saolta University Health Care Group,0802,Mayo University Hospital,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,8
+30/01/2020,Saolta University Health Care Group,0802,Mayo University Hospital,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,7
+30/01/2020,Saolta University Health Care Group,0802,Mayo University Hospital,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,2
+30/01/2020,Saolta University Health Care Group,0802,Mayo University Hospital,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,4
+30/01/2020,Saolta University Health Care Group,0802,Mayo University Hospital,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,3
+30/01/2020,Saolta University Health Care Group,0802,Mayo University Hospital,2600,General Surgery,Inpatient,Adult,16-64,  0-3 Months,1
+30/01/2020,Saolta University Health Care Group,0802,Mayo University Hospital,2600,General Surgery,Inpatient,Adult,65+,  0-3 Months,1
+30/01/2020,Saolta University Health Care Group,0802,Mayo University Hospital,2600,General Surgery,Inpatient,Child,0-15,  6-9 Months,1
+30/01/2020,Saolta University Health Care Group,0802,Mayo University Hospital,5000,General Medicine,Day Case,Adult,16-64,  0-3 Months,139
+30/01/2020,Saolta University Health Care Group,0802,Mayo University Hospital,5000,General Medicine,Day Case,Adult,16-64,  3-6 Months,85
+30/01/2020,Saolta University Health Care Group,0802,Mayo University Hospital,5000,General Medicine,Day Case,Adult,16-64,  6-9 Months,80
+30/01/2020,Saolta University Health Care Group,0802,Mayo University Hospital,5000,General Medicine,Day Case,Adult,16-64,  9-12 Months,25
+30/01/2020,Saolta University Health Care Group,0802,Mayo University Hospital,5000,General Medicine,Day Case,Adult,16-64, 12-15 Months,17
+30/01/2020,Saolta University Health Care Group,0802,Mayo University Hospital,5000,General Medicine,Day Case,Adult,16-64, 15-18 Months,7
+30/01/2020,Saolta University Health Care Group,0802,Mayo University Hospital,5000,General Medicine,Day Case,Adult,16-64,18+ Months,2
+30/01/2020,Saolta University Health Care Group,0802,Mayo University Hospital,5000,General Medicine,Day Case,Adult,65+,  0-3 Months,85
+30/01/2020,Saolta University Health Care Group,0802,Mayo University Hospital,5000,General Medicine,Day Case,Adult,65+,  3-6 Months,60
+30/01/2020,Saolta University Health Care Group,0802,Mayo University Hospital,5000,General Medicine,Day Case,Adult,65+,  6-9 Months,43
+30/01/2020,Saolta University Health Care Group,0802,Mayo University Hospital,5000,General Medicine,Day Case,Adult,65+,  9-12 Months,9
+30/01/2020,Saolta University Health Care Group,0802,Mayo University Hospital,5000,General Medicine,Day Case,Adult,65+, 12-15 Months,7
+30/01/2020,Saolta University Health Care Group,0802,Mayo University Hospital,5000,General Medicine,Day Case,Adult,65+, 15-18 Months,4
+30/01/2020,Saolta University Health Care Group,0803,Roscommon University Hospital,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,246
+30/01/2020,Saolta University Health Care Group,0803,Roscommon University Hospital,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,9
+30/01/2020,Saolta University Health Care Group,0803,Roscommon University Hospital,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,87
+30/01/2020,Saolta University Health Care Group,0803,Roscommon University Hospital,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,4
+30/01/2020,Saolta University Health Care Group,0803,Roscommon University Hospital,2600,General Surgery,Day Case,Adult,65+,  6-9 Months,1
+30/01/2020,Saolta University Health Care Group,0803,Roscommon University Hospital,2600,General Surgery,Day Case,Adult,65+, 12-15 Months,1
+30/01/2020,Saolta University Health Care Group,0919,Portiuncula University Hospital,0000,Small Volume Specialities,Day Case,Child,0-15,  3-6 Months,1
+30/01/2020,Saolta University Health Care Group,0919,Portiuncula University Hospital,0000,Small Volume Specialities,Day Case,Child,0-15,  6-9 Months,1
+30/01/2020,Saolta University Health Care Group,0919,Portiuncula University Hospital,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,89
+30/01/2020,Saolta University Health Care Group,0919,Portiuncula University Hospital,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,27
+30/01/2020,Saolta University Health Care Group,0919,Portiuncula University Hospital,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,9
+30/01/2020,Saolta University Health Care Group,0919,Portiuncula University Hospital,2600,General Surgery,Day Case,Adult,16-64,  9-12 Months,4
+30/01/2020,Saolta University Health Care Group,0919,Portiuncula University Hospital,2600,General Surgery,Day Case,Adult,16-64, 12-15 Months,6
+30/01/2020,Saolta University Health Care Group,0919,Portiuncula University Hospital,2600,General Surgery,Day Case,Adult,16-64, 15-18 Months,1
+30/01/2020,Saolta University Health Care Group,0919,Portiuncula University Hospital,2600,General Surgery,Day Case,Adult,16-64,18+ Months,1
+30/01/2020,Saolta University Health Care Group,0919,Portiuncula University Hospital,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,39
+30/01/2020,Saolta University Health Care Group,0919,Portiuncula University Hospital,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,14
+30/01/2020,Saolta University Health Care Group,0919,Portiuncula University Hospital,2600,General Surgery,Day Case,Adult,65+,  6-9 Months,2
+30/01/2020,Saolta University Health Care Group,0919,Portiuncula University Hospital,2600,General Surgery,Day Case,Adult,65+,  9-12 Months,6
+30/01/2020,Saolta University Health Care Group,0919,Portiuncula University Hospital,2600,General Surgery,Day Case,Adult,65+, 12-15 Months,2
+30/01/2020,Saolta University Health Care Group,0919,Portiuncula University Hospital,2600,General Surgery,Day Case,Adult,65+, 15-18 Months,3
+30/01/2020,Saolta University Health Care Group,0919,Portiuncula University Hospital,2600,General Surgery,Day Case,Adult,65+,18+ Months,1
+30/01/2020,Saolta University Health Care Group,0919,Portiuncula University Hospital,2600,General Surgery,Day Case,Child,0-15,  0-3 Months,1
+30/01/2020,Saolta University Health Care Group,0919,Portiuncula University Hospital,2600,General Surgery,Inpatient,Adult,65+,  0-3 Months,1
+30/01/2020,Saolta University Health Care Group,0919,Portiuncula University Hospital,5000,General Medicine,Day Case,Adult,16-64,  0-3 Months,3
+30/01/2020,Saolta University Health Care Group,0919,Portiuncula University Hospital,5000,General Medicine,Day Case,Adult,16-64,  6-9 Months,1
+30/01/2020,Saolta University Health Care Group,0919,Portiuncula University Hospital,5000,General Medicine,Day Case,Adult,16-64, 15-18 Months,2
+30/01/2020,Saolta University Health Care Group,0919,Portiuncula University Hospital,5000,General Medicine,Day Case,Adult,65+,  6-9 Months,2
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,0000,Small Volume Specialities,Day Case,Adult,16-64,  0-3 Months,1
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,0000,Small Volume Specialities,Day Case,Adult,16-64,  3-6 Months,1
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,0700,Gastro-Enterology,Day Case,Adult,16-64,  0-3 Months,96
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,0700,Gastro-Enterology,Day Case,Adult,16-64,  3-6 Months,55
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,0700,Gastro-Enterology,Day Case,Adult,16-64,  6-9 Months,18
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,0700,Gastro-Enterology,Day Case,Adult,16-64,  9-12 Months,3
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,0700,Gastro-Enterology,Day Case,Adult,16-64, 12-15 Months,3
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,0700,Gastro-Enterology,Day Case,Adult,65+,  0-3 Months,40
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,0700,Gastro-Enterology,Day Case,Adult,65+,  3-6 Months,29
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,0700,Gastro-Enterology,Day Case,Adult,65+,  6-9 Months,9
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,0700,Gastro-Enterology,Day Case,Adult,65+,  9-12 Months,5
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,0700,Gastro-Enterology,Day Case,Adult,65+, 12-15 Months,2
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,2602,Gastro-Intestinal Surgery,Day Case,Adult,16-64,  0-3 Months,77
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,2602,Gastro-Intestinal Surgery,Day Case,Adult,16-64,  3-6 Months,49
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,2602,Gastro-Intestinal Surgery,Day Case,Adult,16-64,  6-9 Months,29
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,2602,Gastro-Intestinal Surgery,Day Case,Adult,16-64,  9-12 Months,8
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,2602,Gastro-Intestinal Surgery,Day Case,Adult,16-64, 12-15 Months,4
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,2602,Gastro-Intestinal Surgery,Day Case,Adult,65+,  0-3 Months,36
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,2602,Gastro-Intestinal Surgery,Day Case,Adult,65+,  3-6 Months,14
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,2602,Gastro-Intestinal Surgery,Day Case,Adult,65+,  6-9 Months,10
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,2602,Gastro-Intestinal Surgery,Day Case,Adult,65+,  9-12 Months,5
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,2602,Gastro-Intestinal Surgery,Day Case,Adult,65+, 12-15 Months,6
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,2602,Gastro-Intestinal Surgery,Day Case,Adult,65+, 15-18 Months,3
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,2602,Gastro-Intestinal Surgery,Day Case,Child,0-15,  0-3 Months,1
+30/01/2020,South/South West Hospital Group,0600,University Hospital Waterford,2602,Gastro-Intestinal Surgery,Day Case,Child,0-15,  9-12 Months,1
+30/01/2020,South/South West Hospital Group,0607,South Tipperary General Hospital,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,78
+30/01/2020,South/South West Hospital Group,0607,South Tipperary General Hospital,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,2
+30/01/2020,South/South West Hospital Group,0607,South Tipperary General Hospital,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,1
+30/01/2020,South/South West Hospital Group,0607,South Tipperary General Hospital,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,24
+30/01/2020,South/South West Hospital Group,0607,South Tipperary General Hospital,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,1
+30/01/2020,South/South West Hospital Group,0607,South Tipperary General Hospital,2600,General Surgery,Inpatient,Adult,16-64,  0-3 Months,1
+30/01/2020,South/South West Hospital Group,0607,South Tipperary General Hospital,5000,General Medicine,Day Case,Adult,16-64,  0-3 Months,118
+30/01/2020,South/South West Hospital Group,0607,South Tipperary General Hospital,5000,General Medicine,Day Case,Adult,16-64,  3-6 Months,28
+30/01/2020,South/South West Hospital Group,0607,South Tipperary General Hospital,5000,General Medicine,Day Case,Adult,65+,  0-3 Months,31
+30/01/2020,South/South West Hospital Group,0607,South Tipperary General Hospital,5000,General Medicine,Day Case,Adult,65+,  3-6 Months,7
+30/01/2020,South/South West Hospital Group,0703,Mallow General Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  0-3 Months,13
+30/01/2020,South/South West Hospital Group,0703,Mallow General Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  0-3 Months,11
+30/01/2020,South/South West Hospital Group,0703,Mallow General Hospital,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,10
+30/01/2020,South/South West Hospital Group,0703,Mallow General Hospital,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,2
+30/01/2020,South/South West Hospital Group,0703,Mallow General Hospital,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,7
+30/01/2020,South/South West Hospital Group,0703,Mallow General Hospital,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,3
+30/01/2020,South/South West Hospital Group,0704,Bantry General Hospital,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,52
+30/01/2020,South/South West Hospital Group,0704,Bantry General Hospital,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,38
+30/01/2020,South/South West Hospital Group,0704,Bantry General Hospital,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,16
+30/01/2020,South/South West Hospital Group,0704,Bantry General Hospital,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,10
+30/01/2020,South/South West Hospital Group,0704,Bantry General Hospital,2600,General Surgery,Day Case,Adult,65+,  6-9 Months,1
+30/01/2020,South/South West Hospital Group,0704,Bantry General Hospital,5000,General Medicine,Day Case,Adult,16-64,  0-3 Months,23
+30/01/2020,South/South West Hospital Group,0704,Bantry General Hospital,5000,General Medicine,Day Case,Adult,16-64,  3-6 Months,14
+30/01/2020,South/South West Hospital Group,0704,Bantry General Hospital,5000,General Medicine,Day Case,Adult,65+,  0-3 Months,15
+30/01/2020,South/South West Hospital Group,0704,Bantry General Hospital,5000,General Medicine,Day Case,Adult,65+,  3-6 Months,9
+30/01/2020,South/South West Hospital Group,0704,Bantry General Hospital,5000,General Medicine,Inpatient,Adult,16-64,  0-3 Months,1
+30/01/2020,South/South West Hospital Group,0704,Bantry General Hospital,5000,General Medicine,Inpatient,Adult,65+,  3-6 Months,1
+30/01/2020,South/South West Hospital Group,0724,Cork University Hospital,0000,Small Volume Specialities,Day Case,Adult,65+,  0-3 Months,1
+30/01/2020,South/South West Hospital Group,0724,Cork University Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  0-3 Months,52
+30/01/2020,South/South West Hospital Group,0724,Cork University Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  3-6 Months,14
+30/01/2020,South/South West Hospital Group,0724,Cork University Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  6-9 Months,1
+30/01/2020,South/South West Hospital Group,0724,Cork University Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  0-3 Months,22
+30/01/2020,South/South West Hospital Group,0724,Cork University Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  3-6 Months,5
+30/01/2020,South/South West Hospital Group,0724,Cork University Hospital,0700,Gastro-Enterology,Day Case,Child,0-15,  0-3 Months,1
+30/01/2020,South/South West Hospital Group,0724,Cork University Hospital,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,33
+30/01/2020,South/South West Hospital Group,0724,Cork University Hospital,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,11
+30/01/2020,South/South West Hospital Group,0724,Cork University Hospital,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,1
+30/01/2020,South/South West Hospital Group,0724,Cork University Hospital,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,9
+30/01/2020,South/South West Hospital Group,0724,Cork University Hospital,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,4
+30/01/2020,South/South West Hospital Group,0724,Cork University Hospital,2600,General Surgery,Day Case,Child,0-15,  9-12 Months,1
+30/01/2020,South/South West Hospital Group,0724,Cork University Hospital,2600,General Surgery,Day Case,Child,0-15, 12-15 Months,2
+30/01/2020,South/South West Hospital Group,0724,Cork University Hospital,2600,General Surgery,Inpatient,Child,0-15,  9-12 Months,1
+30/01/2020,South/South West Hospital Group,0726,University Hospital Kerry,0700,Gastro-Enterology,Day Case,Adult,16-64,  0-3 Months,43
+30/01/2020,South/South West Hospital Group,0726,University Hospital Kerry,0700,Gastro-Enterology,Day Case,Adult,16-64,  3-6 Months,8
+30/01/2020,South/South West Hospital Group,0726,University Hospital Kerry,0700,Gastro-Enterology,Day Case,Adult,65+,  0-3 Months,14
+30/01/2020,South/South West Hospital Group,0726,University Hospital Kerry,0700,Gastro-Enterology,Day Case,Adult,65+,  3-6 Months,3
+30/01/2020,South/South West Hospital Group,0726,University Hospital Kerry,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,267
+30/01/2020,South/South West Hospital Group,0726,University Hospital Kerry,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,68
+30/01/2020,South/South West Hospital Group,0726,University Hospital Kerry,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,99
+30/01/2020,South/South West Hospital Group,0726,University Hospital Kerry,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,27
+30/01/2020,South/South West Hospital Group,0726,University Hospital Kerry,2600,General Surgery,Day Case,Child,0-15,  0-3 Months,1
+30/01/2020,South/South West Hospital Group,0726,University Hospital Kerry,2600,General Surgery,Inpatient,Adult,16-64,  0-3 Months,7
+30/01/2020,South/South West Hospital Group,0726,University Hospital Kerry,2600,General Surgery,Inpatient,Adult,65+,  0-3 Months,4
+30/01/2020,South/South West Hospital Group,0726,University Hospital Kerry,2600,General Surgery,Inpatient,Adult,65+,  3-6 Months,1
+30/01/2020,South/South West Hospital Group,0726,University Hospital Kerry,5000,General Medicine,Day Case,Adult,16-64,  0-3 Months,24
+30/01/2020,South/South West Hospital Group,0726,University Hospital Kerry,5000,General Medicine,Day Case,Adult,16-64,  3-6 Months,1
+30/01/2020,South/South West Hospital Group,0726,University Hospital Kerry,5000,General Medicine,Day Case,Adult,65+,  0-3 Months,2
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,0000,Small Volume Specialities,Day Case,Adult,16-64,  0-3 Months,6
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,0000,Small Volume Specialities,Day Case,Adult,65+,  0-3 Months,2
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,0000,Small Volume Specialities,Day Case,Adult,65+,  6-9 Months,1
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  0-3 Months,87
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  3-6 Months,50
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  6-9 Months,18
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  9-12 Months,5
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  0-3 Months,36
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  3-6 Months,12
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  6-9 Months,3
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  9-12 Months,1
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,0900,Geriatric Medicine,Day Case,Adult,16-64,  6-9 Months,1
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,0900,Geriatric Medicine,Day Case,Adult,65+,  0-3 Months,2
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,0900,Geriatric Medicine,Day Case,Adult,65+,  3-6 Months,1
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,0900,Geriatric Medicine,Day Case,Adult,65+,  6-9 Months,1
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,36
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,33
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,14
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,2600,General Surgery,Day Case,Adult,16-64,  9-12 Months,2
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,2600,General Surgery,Day Case,Adult,16-64, 12-15 Months,1
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,13
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,12
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,2600,General Surgery,Day Case,Adult,65+,  6-9 Months,11
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,2602,Gastro-Intestinal Surgery,Day Case,Adult,16-64,  0-3 Months,16
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,2602,Gastro-Intestinal Surgery,Day Case,Adult,16-64,  3-6 Months,7
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,2602,Gastro-Intestinal Surgery,Day Case,Adult,16-64,  6-9 Months,12
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,2602,Gastro-Intestinal Surgery,Day Case,Adult,65+,  0-3 Months,4
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,2602,Gastro-Intestinal Surgery,Day Case,Adult,65+,  3-6 Months,5
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,2602,Gastro-Intestinal Surgery,Day Case,Adult,65+,  6-9 Months,8
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,2603,Hepato-Biliary Surgery,Day Case,Adult,16-64,  0-3 Months,14
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,2603,Hepato-Biliary Surgery,Day Case,Adult,16-64,  3-6 Months,6
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,2603,Hepato-Biliary Surgery,Day Case,Adult,65+,  0-3 Months,4
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,5000,General Medicine,Day Case,Adult,16-64,  0-3 Months,3
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,5000,General Medicine,Day Case,Adult,16-64,  9-12 Months,2
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,5000,General Medicine,Day Case,Adult,65+,  0-3 Months,2
+30/01/2020,South/South West Hospital Group,0913,Mercy University Hospital,5000,General Medicine,Day Case,Adult,65+,  6-9 Months,1
+30/01/2020,South/South West Hospital Group,0915,South Infirmary Victoria University Hospital,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,182
+30/01/2020,South/South West Hospital Group,0915,South Infirmary Victoria University Hospital,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,21
+30/01/2020,South/South West Hospital Group,0915,South Infirmary Victoria University Hospital,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,1
+30/01/2020,South/South West Hospital Group,0915,South Infirmary Victoria University Hospital,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,27
+30/01/2020,South/South West Hospital Group,0915,South Infirmary Victoria University Hospital,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,3
+30/01/2020,South/South West Hospital Group,0915,South Infirmary Victoria University Hospital,2600,General Surgery,Day Case,Child,0-15,  0-3 Months,1
+30/01/2020,South/South West Hospital Group,0915,South Infirmary Victoria University Hospital,2600,General Surgery,Inpatient,Adult,16-64,  0-3 Months,2
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,16-64,  0-3 Months,165
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,16-64,  3-6 Months,175
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,16-64,  6-9 Months,100
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,16-64,  9-12 Months,138
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,16-64, 12-15 Months,80
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,16-64, 15-18 Months,41
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,16-64,18+ Months,41
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,65+,  0-3 Months,53
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,65+,  3-6 Months,48
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,65+,  6-9 Months,41
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,65+,  9-12 Months,24
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,65+, 12-15 Months,16
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,65+, 15-18 Months,22
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,65+,18+ Months,27
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,49
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,35
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,18
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,2600,General Surgery,Day Case,Adult,16-64,  9-12 Months,19
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,2600,General Surgery,Day Case,Adult,16-64, 12-15 Months,1
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,27
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,20
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,2600,General Surgery,Day Case,Adult,65+,  6-9 Months,4
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,2600,General Surgery,Day Case,Adult,65+,  9-12 Months,6
+30/01/2020,University of Limerick Hospital Group,0300,University Hospital Limerick,2600,General Surgery,Day Case,Adult,65+, 12-15 Months,1
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  0-3 Months,12
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  3-6 Months,24
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  6-9 Months,6
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  9-12 Months,3
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64, 12-15 Months,17
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64, 15-18 Months,25
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,18+ Months,15
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  0-3 Months,4
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  3-6 Months,8
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  6-9 Months,2
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  9-12 Months,2
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,0700,Gastro-Enterology,Day Case,Adult,65+, 12-15 Months,5
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,0700,Gastro-Enterology,Day Case,Adult,65+, 15-18 Months,5
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,18+ Months,4
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,0700,Gastro-Enterology,Inpatient,Adult,16-64,  3-6 Months,1
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,1900,Paediatrics,Day Case,Child,0-15,  0-3 Months,3
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,1900,Paediatrics,Day Case,Child,0-15,  3-6 Months,3
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,56
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,78
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,14
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,2600,General Surgery,Day Case,Adult,16-64,  9-12 Months,19
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,2600,General Surgery,Day Case,Adult,16-64, 12-15 Months,17
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,2600,General Surgery,Day Case,Adult,16-64, 15-18 Months,1
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,8
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,23
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,2600,General Surgery,Day Case,Adult,65+,  6-9 Months,3
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,2600,General Surgery,Day Case,Adult,65+,  9-12 Months,6
+30/01/2020,University of Limerick Hospital Group,0304,Nenagh Hospital,2600,General Surgery,Day Case,Adult,65+, 12-15 Months,2
+30/01/2020,University of Limerick Hospital Group,0305,Ennis Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  0-3 Months,64
+30/01/2020,University of Limerick Hospital Group,0305,Ennis Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  3-6 Months,65
+30/01/2020,University of Limerick Hospital Group,0305,Ennis Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  6-9 Months,75
+30/01/2020,University of Limerick Hospital Group,0305,Ennis Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64,  9-12 Months,40
+30/01/2020,University of Limerick Hospital Group,0305,Ennis Hospital,0700,Gastro-Enterology,Day Case,Adult,16-64, 12-15 Months,14
+30/01/2020,University of Limerick Hospital Group,0305,Ennis Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  0-3 Months,29
+30/01/2020,University of Limerick Hospital Group,0305,Ennis Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  3-6 Months,27
+30/01/2020,University of Limerick Hospital Group,0305,Ennis Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  6-9 Months,21
+30/01/2020,University of Limerick Hospital Group,0305,Ennis Hospital,0700,Gastro-Enterology,Day Case,Adult,65+,  9-12 Months,8
+30/01/2020,University of Limerick Hospital Group,0305,Ennis Hospital,0700,Gastro-Enterology,Day Case,Adult,65+, 12-15 Months,6
+30/01/2020,University of Limerick Hospital Group,0305,Ennis Hospital,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,131
+30/01/2020,University of Limerick Hospital Group,0305,Ennis Hospital,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,149
+30/01/2020,University of Limerick Hospital Group,0305,Ennis Hospital,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,70
+30/01/2020,University of Limerick Hospital Group,0305,Ennis Hospital,2600,General Surgery,Day Case,Adult,16-64,  9-12 Months,39
+30/01/2020,University of Limerick Hospital Group,0305,Ennis Hospital,2600,General Surgery,Day Case,Adult,16-64, 12-15 Months,4
+30/01/2020,University of Limerick Hospital Group,0305,Ennis Hospital,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,32
+30/01/2020,University of Limerick Hospital Group,0305,Ennis Hospital,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,38
+30/01/2020,University of Limerick Hospital Group,0305,Ennis Hospital,2600,General Surgery,Day Case,Adult,65+,  6-9 Months,15
+30/01/2020,University of Limerick Hospital Group,0305,Ennis Hospital,2600,General Surgery,Day Case,Adult,65+,  9-12 Months,6
+30/01/2020,University of Limerick Hospital Group,0305,Ennis Hospital,2600,General Surgery,Day Case,Adult,65+, 12-15 Months,2
+30/01/2020,University of Limerick Hospital Group,0918,St. John's Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,16-64,  0-3 Months,27
+30/01/2020,University of Limerick Hospital Group,0918,St. John's Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,16-64,  3-6 Months,24
+30/01/2020,University of Limerick Hospital Group,0918,St. John's Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,16-64,  6-9 Months,17
+30/01/2020,University of Limerick Hospital Group,0918,St. John's Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,16-64,  9-12 Months,19
+30/01/2020,University of Limerick Hospital Group,0918,St. John's Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,16-64, 12-15 Months,3
+30/01/2020,University of Limerick Hospital Group,0918,St. John's Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,65+,  0-3 Months,9
+30/01/2020,University of Limerick Hospital Group,0918,St. John's Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,65+,  3-6 Months,13
+30/01/2020,University of Limerick Hospital Group,0918,St. John's Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,65+,  6-9 Months,7
+30/01/2020,University of Limerick Hospital Group,0918,St. John's Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,65+,  9-12 Months,8
+30/01/2020,University of Limerick Hospital Group,0918,St. John's Hospital Limerick,0700,Gastro-Enterology,Day Case,Adult,65+, 12-15 Months,2
+30/01/2020,University of Limerick Hospital Group,0918,St. John's Hospital Limerick,2600,General Surgery,Day Case,Adult,16-64,  0-3 Months,145
+30/01/2020,University of Limerick Hospital Group,0918,St. John's Hospital Limerick,2600,General Surgery,Day Case,Adult,16-64,  3-6 Months,74
+30/01/2020,University of Limerick Hospital Group,0918,St. John's Hospital Limerick,2600,General Surgery,Day Case,Adult,16-64,  6-9 Months,40
+30/01/2020,University of Limerick Hospital Group,0918,St. John's Hospital Limerick,2600,General Surgery,Day Case,Adult,16-64,  9-12 Months,32
+30/01/2020,University of Limerick Hospital Group,0918,St. John's Hospital Limerick,2600,General Surgery,Day Case,Adult,16-64, 12-15 Months,13
+30/01/2020,University of Limerick Hospital Group,0918,St. John's Hospital Limerick,2600,General Surgery,Day Case,Adult,65+,  0-3 Months,60
+30/01/2020,University of Limerick Hospital Group,0918,St. John's Hospital Limerick,2600,General Surgery,Day Case,Adult,65+,  3-6 Months,25
+30/01/2020,University of Limerick Hospital Group,0918,St. John's Hospital Limerick,2600,General Surgery,Day Case,Adult,65+,  6-9 Months,14
+30/01/2020,University of Limerick Hospital Group,0918,St. John's Hospital Limerick,2600,General Surgery,Day Case,Adult,65+,  9-12 Months,13
+30/01/2020,University of Limerick Hospital Group,0918,St. John's Hospital Limerick,2600,General Surgery,Day Case,Adult,65+, 12-15 Months,1
+30/01/2020,University of Limerick Hospital Group,0918,St. John's Hospital Limerick,2600,General Surgery,Inpatient,Adult,16-64,  0-3 Months,1
+
