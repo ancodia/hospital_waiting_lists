@@ -1,78 +1,78 @@
-Specialty_HIPE,Specialty_Name
-0,Small Volume Specialities
-601,Paediatric ENT
-1302,Paediatric Neurology
-1402,Paediatric Neurosurgery
-1700,Ophthalmology
-1802,Paed Orthopaedic
-1900,Paediatrics
-1902,Paed Cardiology
-1903,Paed Oncology
-1904,Neonatology
-1905,Paed Endocrinology
-1906,Paed Gastro-Enterol
-1907,Paed Haematology
-1909,Paediatric Infectious Diseases
-1910,Paed Metabolic Medicine
-1911,Paed Nephrology
-1912,Paediatric Respiratory Medicine
-1915,Paediatric Dermatology
-1916,Developmental Paediatrics
-2000,Plastic Surgery
-2003,Maxillo-Facial
-2202,Paediatric Radiology
-2500,Rheumatology
-7000,Dental Surgery
-7200,Paediatric Surgery
-7600,Cardio-Thoracic Surgery
-7803,Paediatric Urology
-7900,Clinical Immunology
-8004,Paediatric Anaesthetics
-8800,Immunology
-2600,General Surgery
-5000,General Medicine
-7800,Urology
-1503,Gynaecology
-8003,Pain Relief
-100,Cardiology
-600,Otolaryngology (ENT)
-1800,Orthopaedics
-2200,Radiology
-300,Dermatology
-400,Endocrinology
-700,Gastro-Enterology
-900,Geriatric Medicine
-1300,Neurology
-1600,Oncology
-2300,Nephrology
-2400,Respiratory Medicine
-2604,Vascular Surgery
-1100,Haematology
-8000,Anaesthetics
-2602,Gastro-Intestinal Surgery
-7700,Metabolic Medicine
-3000,Rehabilitation Medicine
-1400,Neurosurgery
-1502,Obstetrics
-7001,Oral Surgery
-1703,Vitro-Retinal Surgery
-2605,Breast Surgery
-2603,Hepato-Biliary Surgery
-402,Diabetes Mellitus
-2102,Child/Adolescent Psychiatry
-6700,Clinical (Medical) Genetics
-6200,Clinical Neurophysiology
-2100,Psychiatry
-7300,Palliative Medicine
-7500,Radiotherapy
-8400,Chemical Pathology
-2700,Infectious Diseases
-6300,Clinical Pharmacology
-7400,Pathology
-8500,Histopathology
-1111,Other
-2104,Substance Abuse
-2702,Tropical
-2800,Accident & Emergency
-6500,G.P. Medicine
-1500,Obstetrics/Gynaecology
+Speciality_Name,Speciality_ID
+Small Volume Specialities,spec_72
+Paediatric ENT,spec_53
+Paediatric Neurology,spec_55
+Paediatric Neurosurgery,spec_56
+Ophthalmology,spec_38
+Paed Orthopaedic,spec_50
+Paediatrics,spec_61
+Paed Cardiology,spec_43
+Paed Oncology,spec_49
+Neonatology,spec_31
+Paed Endocrinology,spec_44
+Paed Gastro-Enterol,spec_45
+Paed Haematology,spec_46
+Paediatric Infectious Diseases,spec_54
+Paed Metabolic Medicine,spec_47
+Paed Nephrology,spec_48
+Paediatric Respiratory Medicine,spec_58
+Paediatric Dermatology,spec_52
+Developmental Paediatrics,spec_14
+Plastic Surgery,spec_65
+Maxillo-Facial,spec_29
+Paediatric Radiology,spec_57
+Rheumatology,spec_71
+Dental Surgery,spec_12
+Paediatric Surgery,spec_59
+Cardio-Thoracic Surgery,spec_4
+Paediatric Urology,spec_60
+Clinical Immunology,spec_9
+Paediatric Anaesthetics,spec_51
+Immunology,spec_27
+General Surgery,spec_21
+General Medicine,spec_20
+Urology,spec_75
+Gynaecology,spec_23
+Pain Relief,spec_62
+Cardiology,spec_5
+Otolaryngology (ENT),spec_42
+Orthopaedics,spec_40
+Radiology,spec_67
+Dermatology,spec_13
+Endocrinology,spec_16
+Gastro-Enterology,spec_18
+Geriatric Medicine,spec_22
+Neurology,spec_33
+Oncology,spec_37
+Nephrology,spec_32
+Respiratory Medicine,spec_70
+Vascular Surgery,spec_76
+Haematology,spec_24
+Anaesthetics,spec_2
+Gastro-Intestinal Surgery,spec_19
+Metabolic Medicine,spec_30
+Rehabilitation Medicine,spec_69
+Neurosurgery,spec_34
+Obstetrics,spec_35
+Oral Surgery,spec_39
+Vitro-Retinal Surgery,spec_77
+Breast Surgery,spec_3
+Hepato-Biliary Surgery,spec_25
+Diabetes Mellitus,spec_15
+Child/Adolescent Psychiatry,spec_7
+Clinical (Medical) Genetics,spec_8
+Clinical Neurophysiology,spec_10
+Psychiatry,spec_66
+Palliative Medicine,spec_63
+Radiotherapy,spec_68
+Chemical Pathology,spec_6
+Infectious Diseases,spec_28
+Clinical Pharmacology,spec_11
+Pathology,spec_64
+Histopathology,spec_26
+Other,spec_41
+Substance Abuse,spec_73
+Tropical,spec_74
+Accident & Emergency,spec_1
+G.P. Medicine,spec_17
+Obstetrics/Gynaecology,spec_36

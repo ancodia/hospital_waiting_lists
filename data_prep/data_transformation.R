@@ -54,7 +54,7 @@ all_waiting_lists <- bind_rows(list(ipdc_data, ipdc_gi_data, op_data))
 # sort by descending archive data
 all_waiting_lists <- all_waiting_lists[
   order(all_waiting_lists$Archive_Date, decreasing = TRUE),]
-
+all_waiting_lists
 # inspect tibble structure
 str(all_waiting_lists)
 
