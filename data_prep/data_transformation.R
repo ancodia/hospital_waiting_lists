@@ -1,5 +1,6 @@
 source("data_prep/helper.R")
 library(reshape2)
+library(VIM)
 ##############################################################################
 # Data transformation 
 # - load and process source data, 
@@ -18,8 +19,8 @@ columns_ipdc <- c("Archive_Date",
                   "Hospital_Group",
                   "Hospital_HIPE",
                   "Hospital_Name",
-                  "Specialty_HIPE",
-                  "Specialty_Name",
+                  "Speciality_HIPE",
+                  "Speciality_Name",
                   "Case_Type",
                   "Adult_Child",
                   "Age_Profile",
@@ -54,7 +55,7 @@ all_waiting_lists <- bind_rows(list(ipdc_data, ipdc_gi_data, op_data))
 # sort by descending archive data
 all_waiting_lists <- all_waiting_lists[
   order(all_waiting_lists$Archive_Date, decreasing = TRUE),]
-all_waiting_lists
+
 # inspect tibble structure
 str(all_waiting_lists)
 
@@ -63,107 +64,204 @@ str(all_waiting_lists)
 # because it is not necessary for the analysis that follows
 all_waiting_lists <- convert_dates(all_waiting_lists)
 
-# other column type conversions
-attach(all_waiting_lists)
-all_waiting_lists$Hospital_Group <- as.factor(Hospital_Group)
-all_waiting_lists$Hospital_Name <- as.factor(Hospital_Name)
-all_waiting_lists$Hospital_HIPE <- as.numeric(Hospital_HIPE)
-all_waiting_lists$Specialty_Name <- as.factor(Specialty_Name)
-all_waiting_lists$Specialty_HIPE <- as.numeric(Specialty_HIPE)
-all_waiting_lists$Case_Type <- as.factor(Case_Type)
-all_waiting_lists$Adult_Child <- as.factor(Adult_Child)
-all_waiting_lists$Age_Profile <- as.factor(Age_Profile)
-all_waiting_lists$Time_Bands <- as.factor(Time_Bands)
-detach(all_waiting_lists)
-
 # check the structure again
 str(all_waiting_lists)
 
 # drop rows that have no associated hospital name
 all_waiting_lists <- drop_records_with_no_hospital(all_waiting_lists)
 
-##############################################################################
-# Create hospital details lookup file
-##############################################################################
-str(all_waiting_lists)
-# hipe has 48 variations, while hospital names have 62 variations
 
-# get unique combinations of 'Hospital_Group', 'Hospital_HIPE' and 'Hospital_Name'
-unique_hospital_values <- unique(all_waiting_lists
-                                 [, c('Hospital_HIPE',
-                                      'Hospital_Group',
-                                      'Hospital_Name')])
-# take first occurance of each HIPE code to avoid duplication
-unique_hospital_values <- unique_hospital_values[!duplicated(
-  unique_hospital_values$Hospital_HIPE), ]
-# check for NA values in HIPE column
-na_hospital_hipe <- is.na(unique_hospital_values$Hospital_HIPE)
-na_hospital_hipe
-# no NAs present!
+missing_values <- aggr(all_waiting_lists, prop = FALSE, numbers = TRUE)
+missing_values
+# 1222 speciality HIPE codes missing so need to use only the speciality name for all rows
+# Missing case types are expected for all outpatient records so 
+# assigning those a value of "Outpatient"
+all_waiting_lists$Case_Type[is.na(all_waiting_lists$Case_Type)] <- "Outpatient" 
 
-# write these to a csv file
-write_csv(unique_hospital_values, "data_prep/hospital_lookup.csv")
-# now the full strings for hospital group and name can be removed from the dataset
-all_waiting_lists <- select(all_waiting_lists, -c(Hospital_Group, Hospital_Name))
-##############################################################################
+# The 1 row with a missing Time_Bands value will be removed
+# all other missing values are deemed irrelevant for the current 
+# project, no action will be taken
+nrow(all_waiting_lists)
+all_waiting_lists <- all_waiting_lists[!is.na(all_waiting_lists$Time_Bands),]
+nrow(all_waiting_lists)
 
-##############################################################################
-# Create Speciality name lookup file
-##############################################################################
-unique_speciality_values <- unique(all_waiting_lists
-                                   [, c('Specialty_HIPE',
-                                        'Specialty_Name')])
-unique_speciality_values <- unique_speciality_values[!duplicated(
-  unique_speciality_values$Specialty_HIPE), ]
-# check for NA values in HIPE column
-na_speciality_hipe <- is.na(unique_speciality_values$Specialty_HIPE)
-na_speciality_hipe # 1 returned
-# get the NA row
-na_speciality_hipe <- unique_speciality_values[
-  is.na(unique_speciality_values$Specialty_HIPE),]
-na_speciality_hipe # "Other" speciality type
-# update it to 1111
-other_hipe <- 1111
-attach(unique_speciality_values)
-unique_speciality_values$Specialty_HIPE[Specialty_Name == "Other"] <- other_hipe
-detach(unique_speciality_values)
-
-# take first occurance of each HIPE code to avoid any duplication
-unique_speciality_values <- unique_speciality_values[!duplicated(
-  unique_speciality_values$Specialty_HIPE), ]
-
-# write specialities to a csv file
-write_csv(unique_speciality_values, "data_prep/speciality_lookup.csv")
-
-# update the other hipe code and remove the speciality name field from the main dataset
+# column type conversions
 attach(all_waiting_lists)
-all_waiting_lists$Specialty_HIPE[Specialty_Name == "Other"] <- other_hipe
+all_waiting_lists$Hospital_Group <- as.factor(Hospital_Group)
+all_waiting_lists$Hospital_Name <- as.factor(Hospital_Name)
+all_waiting_lists$Hospital_HIPE <- as.numeric(Hospital_HIPE)
+all_waiting_lists$Speciality_Name <- as.factor(Speciality_Name)
+all_waiting_lists$Speciality_HIPE <- as.numeric(Speciality_HIPE)
+all_waiting_lists$Case_Type <- as.factor(Case_Type)
+all_waiting_lists$Adult_Child <- as.factor(Adult_Child)
+all_waiting_lists$Age_Profile <- as.factor(Age_Profile)
+all_waiting_lists$Time_Bands <- as.factor(Time_Bands)
 detach(all_waiting_lists)
-all_waiting_lists <- select(all_waiting_lists, -c(Specialty_Name))
-##############################################################################
 
-# new structure of dataset
-str(all_waiting_lists)
+##############################################################################
+# Handle missing Speciality HIPE
+# - assign specialities an id and then remove the HIPE and name columns
+##############################################################################
+# get unique speciality name values
+unique_specialities <- unique(all_waiting_lists[, c("Speciality_Name")])
+str(unique_specialities)
+
+# convert the Speciality_Name factor to integer values
+# then add prefix to each row and make a factor again
+unique_specialities$Speciality_ID <- as.integer(unique_specialities$Speciality_Name)
+unique_specialities$Speciality_ID <- paste("spec", 
+                                           unique_specialities$Speciality_ID, 
+                                           sep = "_")
+unique_specialities$Speciality_ID <- as.factor(unique_specialities$Speciality_ID)
+head(unique_specialities)
+
+# write this data to a csv for later lookup purposes
+write_csv(unique_specialities, "data_prep/speciality_lookup.csv")
+
+# add a speciality id column to main dataset and remove speciality hipe/name 
+# inner join unique_specialities on all_waiting_lists by "Speciality_Name"
+all_waiting_lists <- all_waiting_lists %>% inner_join(unique_specialities)
+all_waiting_lists <- select(all_waiting_lists, -c(Speciality_Name, Speciality_HIPE))
+
+count(unique(all_waiting_lists[, c("Hospital_Name")]))
+count(unique(all_waiting_lists[, c("Hospital_Group")]))
+# hospital groups will be used for analysis rather than individual hospitals.
+# The reasoning for this is that patients in regions are generally shared among hospitals
+# so looking at combined figures is probably more accurate. 
+# In this case 8 variations are considered rather than 62 
+# if each individual hospital is used
+
+# get unique hospital group name values
+unique_groups <- unique(all_waiting_lists[, c("Hospital_Group")])
+
+# convert the Hospital_Group factor to integer values
+unique_groups$Group_ID <- as.integer(unique_groups$Hospital_Group)
+unique_groups$Group_ID <- paste("group", 
+                                unique_groups$Group_ID, 
+                                sep = "_")
+unique_groups$Group_ID <- as.factor(unique_groups$Group_ID)
+head(unique_groups)
+
+# write this data to a csv for later lookup purposes
+write_csv(unique_specialities, "data_prep/hospital_group_lookup.csv")
+
+# now merge these IDs into the main dataset and remove 
+# Hospital_Group, Hospital_Name & HIPE
+all_waiting_lists <- all_waiting_lists %>% inner_join(unique_groups)
+all_waiting_lists <- select(all_waiting_lists, -c(Hospital_Group, 
+                                                  Hospital_Name, 
+                                                  Hospital_HIPE))
 
 # make date a factor for use when splitting the data
 all_waiting_lists$Archive_Date <- as.factor(all_waiting_lists$Archive_Date)
+
+# check time bands
+
+
+# new structure of dataset
 str(all_waiting_lists)
 
 # output initial cleaned data to csv
 write_csv(all_waiting_lists, "data_prep/all_waiting_lists.csv")
 
 ##############################################################################
-# Create new dataset with monthly totals per hospital as columns
+# Create new dataset with monthly totals per hospital group and percentage of
+# those totals for each time band as columns
 ##############################################################################
-# reshape data so that there is a column for each month
-# and rows with for each time band per hospital
-hospitals_with_date_columns <- dcast(all_waiting_lists, 
-                                     Hospital_HIPE + Time_Bands ~ Archive_Date,
-                                     value.var = "Total")
-str(with_date_columns)
+# reshape data so that there is a column for each speciality
+# and rows for each month per hospital group
+speciality_columns_added <- reshape2::dcast(all_waiting_lists, 
+                                  Archive_Date + 
+                                    Time_Bands + 
+                                    Group_ID 
+                                  ~ Speciality_ID,
+                                  value.var = "Total",
+                                  )
+str(speciality_columns_added)
+
+# get all possible time bands
+unique(speciality_columns_added[, c("Time_Bands")])
+# some duplicates with added white space/different format
+# update so there are no duplicates
+speciality_columns_added$Time_Bands <- as.character(speciality_columns_added$Time_Bands)
+speciality_columns_added$Time_Bands <- trimws(speciality_columns_added$Time_Bands)
+speciality_columns_added$Time_Bands[
+  speciality_columns_added$Time_Bands == "18 Months +"] <- "18+ Months"
+# replace spaces and dashes with underscore
+speciality_columns_added$Time_Bands <- gsub(speciality_columns_added$Time_Bands, 
+                                            pattern = "-", replacement = "_") 
+speciality_columns_added$Time_Bands <- gsub(speciality_columns_added$Time_Bands, 
+                                            pattern = "\\+", replacement = "plus") 
+speciality_columns_added$Time_Bands <- gsub(speciality_columns_added$Time_Bands, 
+                                            pattern = " Months", replacement = "") 
+speciality_columns_added$Time_Bands <- paste("waiting", 
+                                             speciality_columns_added$Time_Bands, 
+                                             sep = "_")
+speciality_columns_added$Time_Bands <- as.factor(speciality_columns_added$Time_Bands)
+
+# check again
+unique(speciality_columns_added[, c("Time_Bands")])
+# looks good now
+
+# add all speciality figures to get monthly total for each timeband of all hospital groups
+total_per_time_band <- speciality_columns_added %>% 
+  mutate(total = speciality_columns_added %>% 
+           select(starts_with("spec_")) %>% 
+           rowSums())
+
+# get sum of each speciality per month for each hospital group
+sum_of_speciality_figures <- speciality_columns_added %>% 
+  group_by(Archive_Date, Group_ID) %>% 
+  summarise_at(vars(starts_with("spec_")), funs(sum))
+
+# create column for each hospital group's timeband total per month
+time_bands_summed <- reshape2::dcast(total_per_time_band,
+                                    Archive_Date +
+                                      Group_ID 
+                                    ~ Time_Bands,
+                                    value.var = "total", sum)
+
+# merge time band totals data with main dataset 
+modified_waiting_lists_data <- time_bands_summed %>% 
+  inner_join(sum_of_speciality_figures, 
+             by = c("Archive_Date", "Group_ID"))
+
+# check that totals match
+spec_totals <- modified_waiting_lists_data %>% 
+  select(starts_with("spec_")) %>% rowSums()
+time_band_totals <- modified_waiting_lists_data %>% 
+  select(starts_with("waiting_")) %>% rowSums()
+all.equal(spec_totals, time_band_totals) # returns TRUE so totals are the same!
+
+str(modified_waiting_lists_data)
+
+# calculate percentage makeup of time bands
+columns_to_sum <- c("waiting_0_3", 
+                    "waiting_12_15",
+                    "waiting_15_18",
+                    "waiting_18plus",
+                    "waiting_3_6",
+                    "waiting_6_9",
+                    "waiting_9_12")
+total <- rowSums(modified_waiting_lists_data[, columns_to_sum])
+
+modified_waiting_lists_data$`waiting_0_3` <- 
+  modified_waiting_lists_data$`waiting_0_3` / total
+modified_waiting_lists_data$`waiting_3_6` <- 
+  modified_waiting_lists_data$`waiting_3_6` / total
+modified_waiting_lists_data$`waiting_6_9` <- 
+  modified_waiting_lists_data$`waiting_6_9` / total
+modified_waiting_lists_data$`waiting_9_12` <- 
+  modified_waiting_lists_data$`waiting_9_12` / total
+modified_waiting_lists_data$`waiting_12_15` <- 
+  modified_waiting_lists_data$`waiting_12_15` / total
+modified_waiting_lists_data$`waiting_15_18` <- 
+  modified_waiting_lists_data$`waiting_15_18` / total
+modified_waiting_lists_data$waiting_18plus <- 
+  modified_waiting_lists_data$waiting_18plus / total
 
 # write to a csv file
-write_csv(with_date_columns, "data_prep/monthly_figures_by_hospital.csv")
+write_csv(modified_waiting_lists_data, "data_prep/modified_waiting_list_data.csv")
 
 ##############################################################################
 # Create new dataset with monthly totals per speciality as columns
@@ -171,7 +269,7 @@ write_csv(with_date_columns, "data_prep/monthly_figures_by_hospital.csv")
 # reshape data so that there is a column for each month
 # and rows with totals per speciality
 specialities_with_date_columns <- dcast(all_waiting_lists, 
-                                        Specialty_HIPE ~ Archive_Date,
+                                        Speciality_HIPE ~ Archive_Date,
                                         value.var = "Total")
 str(specialities_with_date_columns)
 
