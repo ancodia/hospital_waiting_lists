@@ -1,7 +1,4 @@
-library(tidyverse)
-library(vroom)
-library(lubridate)
-library(stringr)
+source("helpers/load_libs.R")
 
 combine_csv_data <- function(path_to_files, column_names){
   # list of csv files
@@ -19,10 +16,5 @@ convert_dates <- function(data){
                                        orders = c("Y-m-d", "d/m/Y"))
   # remove day from date as it is not necessary
   data$Archive_Date <- str_sub(data$Archive_Date, end=-4)
-  return(data)
-}
-
-drop_records_with_no_hospital <- function(data){
-  data <- subset(data, data$Hospital_Name != "")
   return(data)
 }
