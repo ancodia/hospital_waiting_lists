@@ -1,6 +1,4 @@
 source("helpers/load_libs.R")
-library(reshape2)
-library(VIM)
 
 combine_csv_data <- function(path_to_files, column_names){
   # list of csv files
@@ -17,8 +15,8 @@ convert_dates <- function(data){
   data$Archive_Date <- parse_date_time(x = data$Archive_Date,
                                        orders = c("Y-m-d", "d/m/Y"))
   # convert dates to quarterly figures
-  data$Archive_Date <- lubridate::quarter(data$Archive_Date, 
-                                          with_year = TRUE,
-                                          fiscal_start = 1)
+  #data$Archive_Date <- lubridate::quarter(data$Archive_Date, 
+   #                                       with_year = TRUE,
+    #                                      fiscal_start = 1)
   return(data)
 }
