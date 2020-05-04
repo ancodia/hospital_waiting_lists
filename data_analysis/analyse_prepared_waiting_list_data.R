@@ -11,6 +11,7 @@ waiting_lists$Time_Bands <- factor(waiting_lists$Time_Bands,
 # also be factor variables (unordered)
 waiting_lists$Speciality_Name <- as.factor(waiting_lists$Speciality_Name)
 waiting_lists$Hospital_Group <- as.factor(waiting_lists$Hospital_Group)
+unique(waiting_lists$Hospital_Group)
 str(waiting_lists)
 
 # grouped by year
@@ -49,13 +50,11 @@ density <- ggplot(waiting_lists, aes(x = Total, color = Time_Bands)) +
   facet_wrap(~Hospital_Group, nrow = 2)
 
 ggpubr::ggpar(density,
-              title = "Density of Total Waiting List Numbers",
+              title = "Densities of Total Waiting List Numbers",
               subtitle = "Irish Hospital Groups (2014-19)",
               legend.title = "Waiting Time", legend.position = "top",
               ggtheme = theme_grey(), palette = "Set1")
-
 # densities are skewed so will need to use non-parametric methods for analysis
-
 
 # create a tibble for each hospital group
 attach(waiting_lists_per_month)
@@ -70,15 +69,6 @@ university_of_limerick <- waiting_lists_per_month[(Hospital_Group == "University
 south_south_west <- waiting_lists_per_month[(Hospital_Group == "South/South West Hospital Group"), ]
 detach(waiting_lists_per_month)
 
-
-# https://cran.r-project.org/web/packages/Kendall/Kendall.pdf
-# The null hypothesis for the Kendell test is that there is no monotonic trend in the series.
-# The alternate hypothesis is that a trend exists. This trend can be positive, negative, or non-null.
-# https://vsp.pnnl.gov/help/Vsample/Design_Trend_Mann_Kendall.htm
-
-# https://rcompanion.org/handbook/F_13.html
-# https://anomaly.io/seasonal-trend-decomposition-in-r/index.html
-
 #############################################
 # Trend Analysis
 #############################################
@@ -92,34 +82,14 @@ greater_than_1yr_overall <- waiting_lists_per_month[(Time_Bands == "> 1 Year"), 
 detach(waiting_lists_per_month)
 
 # Less than a year waiting
-time_series_analysis(less_than_1yr_overall, title = "Overall (< 1 Year)")
+title1 <- "Overall (< 1 Year)"
+ts1 <- time_series_analysis(less_than_1yr_overall, title = title1)
+plot_timeseries_data(ts1, title1)
 
 # More than a year waiting
-time_series_analysis(greater_than_1yr_overall, title = "Overall (> 1 Year)")
-
-# # < 1 Year Waiting
-# # create time series
-# overall_time_series_less_than_1yr <- ts(less_than_1yr_overall$Total,
-#                                         frequency = 12,
-#                                         start = c(2014, 1), 
-#                                         end = c(2019, 12))
-# overall_time_series_less_than_1yr
-# # plot the decomposed time series using moving averages
-# plot(decompose(overall_time_series_less_than_1yr))
-# # and the seasonal and trend decomposition using Loess
-# plot(stl(overall_time_series_less_than_1yr, s.window="periodic"))
-# 
-# # trend package
-# # https://rdrr.io/cran/trend/f/inst/doc/trend.pdf
-# # mann-kendall test
-# mk.test(overall_time_series_less_than_1yr)
-# 
-# # cox-stuart test
-# cs.test(overall_time_series_less_than_1yr)
-# 
-# # Sen's slope test
-# sens.slope(overall_time_series_less_than_1yr)
-
+title2 <- "Overall (> 1 Year)"
+ts2 <- time_series_analysis(greater_than_1yr_overall, title = title2)
+plot_timeseries_data(ts2, title2)
 
 #########################################
 # Children's Health Ireland
@@ -130,12 +100,14 @@ greater_than_1yr_childrens_hospital <- childrens_hospital[(Time_Bands == "> 1 Ye
 detach(childrens_hospital)
 
 # Less than a year waiting
-time_series_analysis(less_than_1yr_childrens_hospital, 
-                     title = "Children's Health Ireland (< 1 Year)")
+title1 <- "Children's Health Ireland (< 1 Year)"
+ts1 <- time_series_analysis(less_than_1yr_childrens_hospital, title = title1)
+plot_timeseries_data(ts1, title1)
 
 # More than a year waiting
-time_series_analysis(greater_than_1yr_childrens_hospital, 
-                     title = "Children's Health Ireland (> 1 Year)")
+title2 <- "Children's Health Ireland (> 1 Year)"
+ts2 <- time_series_analysis(greater_than_1yr_childrens_hospital, title = title2)
+plot_timeseries_data(ts2, title2)
 
 #########################################
 # Dublin Midlands Hospital Group
@@ -146,10 +118,14 @@ greater_than_1yr_dublin_midlands <- dublin_midlands[(Time_Bands == "> 1 Year"), 
 detach(dublin_midlands)
 
 # Less than a year waiting
-time_series_analysis(less_than_1yr_dublin_midlands, title = "Dublin Midlands Hospital Group (< 1 Year)")
+title1 <- "Dublin Midlands Hospital Group (< 1 Year)"
+ts1 <- time_series_analysis(less_than_1yr_dublin_midlands, title = title1)
+plot_timeseries_data(ts1, title1)
 
 # More than a year waiting
-time_series_analysis(greater_than_1yr_dublin_midlands, title = "Dublin Midlands Hospital Group (> 1 Year)")
+title2 <- "Dublin Midlands Hospital Group (> 1 Year)"
+ts2 <- time_series_analysis(greater_than_1yr_dublin_midlands, title = title2)
+plot_timeseries_data(ts2, title2)
 
 
 #########################################
@@ -160,14 +136,15 @@ less_than_1yr_ireland_east <- ireland_east[(Time_Bands == "< 1 Year"), ]
 greater_than_1yr_ireland_east <- ireland_east[(Time_Bands == "> 1 Year"), ]
 detach(ireland_east)
 
-# Less than a year waiting for all hospital groups
-time_series_analysis(less_than_1yr_ireland_east, 
-                     title = "Ireland East Hospital Group (< 1 Year)")
+# Less than a year waiting
+title1 <- "Ireland East Hospital Group (< 1 Year)"
+ts1 <- time_series_analysis(less_than_1yr_ireland_east, title = title1)
+plot_timeseries_data(ts1, title1)
 
-# More than a year waiting for all hospital groups
-time_series_analysis(greater_than_1yr_ireland_east, 
-                     title = "Ireland East Hospital Group (> 1 Year)")
-
+# More than a year waiting
+title2 <- "Ireland East Hospital Group (> 1 Year)"
+ts2 <- time_series_analysis(greater_than_1yr_ireland_east, title = title2)
+plot_timeseries_data(ts2, title2)
 
 #########################################
 # RCSI Hospitals Group
@@ -177,14 +154,15 @@ less_than_1yr_rcsi <- rcsi[(Time_Bands == "< 1 Year"), ]
 greater_than_1yr_rcsi <- rcsi[(Time_Bands == "> 1 Year"), ]
 detach(rcsi)
 
-# Less than a year waiting for all hospital groups
-time_series_analysis(less_than_1yr_rcsi, 
-                     title = "RCSI Hospitals Group (< 1 Year)")
+# Less than a year waiting
+title1 <- "RCSI Hospitals Group (< 1 Year)"
+ts1 <- time_series_analysis(less_than_1yr_rcsi, title = title1)
+plot_timeseries_data(ts1, title1)
 
-# More than a year waiting for all hospital groups
-time_series_analysis(greater_than_1yr_rcsi, 
-                     title = "RCSI Hospitals Group (> 1 Year)")
-
+# More than a year waiting
+title2 <- "RCSI Hospitals Group (> 1 Year)"
+ts2 <- time_series_analysis(greater_than_1yr_rcsi, title = title2)
+plot_timeseries_data(ts2, title2)
 
 #########################################
 # Saolta University Health Care Group
@@ -194,14 +172,15 @@ less_than_1yr_saolta <- saolta[(Time_Bands == "< 1 Year"), ]
 greater_than_1yr_saolta <- saolta[(Time_Bands == "> 1 Year"), ]
 detach(saolta)
 
-# Less than a year waiting for all hospital groups
-time_series_analysis(less_than_1yr_saolta, 
-                     title = "Saolta University Health Care Group (< 1 Year)")
+# Less than a year waiting
+title1 <- "Saolta University Health Care Group (< 1 Year)"
+ts1 <- time_series_analysis(less_than_1yr_saolta, title = title1)
+plot_timeseries_data(ts1, title1)
 
-# More than a year waiting for all hospital groups
-time_series_analysis(greater_than_1yr_saolta, 
-                     title = "Saolta University Health Care Group (> 1 Year)")
-
+# More than a year waiting
+title2 <- "Saolta University Health Care Group (> 1 Year)"
+ts2 <- time_series_analysis(greater_than_1yr_saolta, title = title2)
+plot_timeseries_data(ts2, title2)
 
 #########################################
 # University of Limerick Hospital Group
@@ -211,27 +190,31 @@ less_than_1yr_ul <- university_of_limerick[(Time_Bands == "< 1 Year"), ]
 greater_than_1yr_ul <- university_of_limerick[(Time_Bands == "> 1 Year"), ]
 detach(university_of_limerick)
 
-# Less than a year waiting for all hospital groups
-time_series_analysis(less_than_1yr_ul, 
-                     title = "UL Hospital Group (< 1 Year)")
+# Less than a year waiting
+title1 <- "UL Hospital Group (< 1 Year)"
+ts1 <- time_series_analysis(less_than_1yr_ul, title = title1)
+plot_timeseries_data(ts1, title1)
 
-# More than a year waiting for all hospital groups
-time_series_analysis(greater_than_1yr_ul, 
-                     title = "UL Hospital Group (> 1 Year)")
-
+# More than a year waiting
+title2 <- "UL Hospital Group (> 1 Year)"
+ts2 <- time_series_analysis(greater_than_1yr_ul, title = title2)
+plot_timeseries_data(ts2, title2)
 
 #########################################
-# University of Limerick Hospital Group
+# South/South West Hospital Group
 #########################################
 attach(south_south_west)
 less_than_1yr_ssw <- south_south_west[(Time_Bands == "< 1 Year"), ]
 greater_than_1yr_ssw <- south_south_west[(Time_Bands == "> 1 Year"), ]
 detach(south_south_west)
 
-# Less than a year waiting for all hospital groups
-time_series_analysis(less_than_1yr_ssw, 
-                     title = "South/South West Hospital Group (< 1 Year)")
+# Less than a year waiting
+title1 <- "South/South West Hospital Group (< 1 Year)"
+ts1 <- time_series_analysis(less_than_1yr_ssw, title = title1)
+plot_timeseries_data(ts1, title1)
 
-# More than a year waiting for all hospital groups
-time_series_analysis(greater_than_1yr_ssw, 
-                     title = "South/South West Hospital Group (> 1 Year)")
+# More than a year waiting
+title2 <- "South/South West Hospital Group (> 1 Year)"
+ts2 <- time_series_analysis(greater_than_1yr_ssw, title = title2)
+plot_timeseries_data(ts2, title2)
+

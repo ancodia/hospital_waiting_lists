@@ -14,9 +14,5 @@ convert_dates <- function(data){
   # parse_date_time() function from lubridate package
   data$Archive_Date <- parse_date_time(x = data$Archive_Date,
                                        orders = c("Y-m-d", "d/m/Y"))
-  # convert dates to quarterly figures
-  #data$Archive_Date <- lubridate::quarter(data$Archive_Date, 
-   #                                       with_year = TRUE,
-    #                                      fiscal_start = 1)
   return(data)
 }

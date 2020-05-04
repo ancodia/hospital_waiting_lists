@@ -120,9 +120,11 @@ all_waiting_lists <- select(all_waiting_lists, -c(Hospital_HIPE,
                                                   Adult_Child,
                                                   Age_Profile))
 
-# combining the Children's Hospital Group and Children's Health Ireland, all fall under CHI since 2018
+# combining the Children's Hospital Group and Children's Health Ireland, 
+# all fall under CHI since 2018
 attach(all_waiting_lists)
-all_waiting_lists[Hospital_Group == "Children's Hospital Group"] <- "Children's Health Ireland"
+all_waiting_lists$Hospital_Group[
+  Hospital_Group == "Children's Hospital Group"] <- "Children's Health Ireland"
 detach(all_waiting_lists)
 
 str(all_waiting_lists)
