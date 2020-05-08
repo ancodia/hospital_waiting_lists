@@ -63,7 +63,10 @@ all_waiting_lists <- convert_dates(all_waiting_lists)
 # check the structure again
 str(all_waiting_lists)
 
-missing_values <- aggr(all_waiting_lists, prop = FALSE, numbers = TRUE)
+missing_values <- aggr(all_waiting_lists, prop = FALSE, 
+                       numbers = TRUE,
+                       labels = names(all_waiting_lists),
+                       cex.axis = .9, oma = c(7,5,3,3))
 missing_values
 # Missing case types are expected for all outpatient records so 
 # assigning those a value of "Outpatient"
@@ -109,29 +112,45 @@ all_waiting_lists$Time_Bands[
     Time_Bands == "18+ Months"] <- "> 1 Year"
 detach(all_waiting_lists)
 all_waiting_lists$Time_Bands <- as.factor(all_waiting_lists$Time_Bands)
+unique(all_waiting_lists[, c("Time_Bands")])
 str(all_waiting_lists)
 
-# removing Hospital_HIPE, Hospital_Name, Speciality_HIPE, 
-# Case_Type, Age_Profile and Adult_Child columns. The focus of 
+# removing Hospital_HIPE, Hospital_Name, Speciality_HIPE, Speciality_Name 
+# Case_Type, Age_Profile and Adult_Child columns. 
 all_waiting_lists <- select(all_waiting_lists, -c(Hospital_HIPE,
                                                   Hospital_Name,
                                                   Speciality_HIPE,
+                                                  Speciality_Name,
                                                   Case_Type,
                                                   Adult_Child,
                                                   Age_Profile))
 
 # combining the Children's Hospital Group and Children's Health Ireland, 
 # all fall under CHI since 2018
+# Shorten names of all other hospital groups
 attach(all_waiting_lists)
 all_waiting_lists$Hospital_Group[
-  Hospital_Group == "Children's Hospital Group"] <- "Children's Health Ireland"
+  Hospital_Group == "Children's Hospital Group"] <- "CHI"
+all_waiting_lists$Hospital_Group[
+  Hospital_Group == "Children's Health Ireland"] <- "CHI"
+all_waiting_lists$Hospital_Group[
+  Hospital_Group == "Dublin Midlands Hospital Group"] <- "Dublin Midlands"
+all_waiting_lists$Hospital_Group[
+  Hospital_Group == "Ireland East Hospital Group"] <- "Ireland East"
+all_waiting_lists$Hospital_Group[
+  Hospital_Group == "RCSI  Hospitals Group"] <- "RCSI"
+all_waiting_lists$Hospital_Group[
+  Hospital_Group == "Saolta University Health Care Group"] <- "Saolta"
+all_waiting_lists$Hospital_Group[
+  Hospital_Group == "University of Limerick Hospital Group"] <- "UL"
+all_waiting_lists$Hospital_Group[
+  Hospital_Group == "South/South West Hospital Group"] <- "South/South West"
 detach(all_waiting_lists)
 
 str(all_waiting_lists)
 # aggregate totals based on length on waiting list
 all_waiting_lists <- aggregate(cbind(Total) ~ 
                                  Time_Bands + 
-                                 Speciality_Name + 
                                  Hospital_Group + 
                                 Archive_Date, 
                                data = all_waiting_lists, sum)
@@ -141,3 +160,4 @@ all_waiting_lists <- all_waiting_lists[
   (year(all_waiting_lists$Archive_Date) < 2020), ]
 
 write_csv(all_waiting_lists, "data_prep/combined_waiting_lists.csv")
+

@@ -7,9 +7,8 @@ str(waiting_lists)
 waiting_lists$Time_Bands <- factor(waiting_lists$Time_Bands, 
                                    ordered = TRUE, 
                                    levels = c("< 1 Year", "> 1 Year"))
-# specialities and hospital groups should 
-# also be factor variables (unordered)
-waiting_lists$Speciality_Name <- as.factor(waiting_lists$Speciality_Name)
+# hospital groups should 
+# also be factor variable (unordered)
 waiting_lists$Hospital_Group <- as.factor(waiting_lists$Hospital_Group)
 unique(waiting_lists$Hospital_Group)
 str(waiting_lists)
@@ -54,19 +53,20 @@ ggpubr::ggpar(density,
               subtitle = "Irish Hospital Groups (2014-19)",
               legend.title = "Waiting Time", legend.position = "top",
               ggtheme = theme_grey(), palette = "Set1")
+
 # densities are skewed so will need to use non-parametric methods for analysis
 
 # create a tibble for each hospital group
 attach(waiting_lists_per_month)
 unique(Hospital_Group)
 # combining children's hospital and children's health groups
-childrens_hospital <- waiting_lists_per_month[(Hospital_Group == "Children's Health Ireland"), ]
-dublin_midlands <- waiting_lists_per_month[(Hospital_Group == "Dublin Midlands Hospital Group"), ]
-ireland_east <- waiting_lists_per_month[(Hospital_Group == "Ireland East Hospital Group"), ]
-rcsi <- waiting_lists_per_month[(Hospital_Group == "RCSI  Hospitals Group"), ]
-saolta <- waiting_lists_per_month[(Hospital_Group == "Saolta University Health Care Group"), ]
-university_of_limerick <- waiting_lists_per_month[(Hospital_Group == "University of Limerick Hospital Group"), ]
-south_south_west <- waiting_lists_per_month[(Hospital_Group == "South/South West Hospital Group"), ]
+childrens_hospital <- waiting_lists_per_month[(Hospital_Group == "CHI"), ]
+dublin_midlands <- waiting_lists_per_month[(Hospital_Group == "Dublin Midlands"), ]
+ireland_east <- waiting_lists_per_month[(Hospital_Group == "Ireland East"), ]
+rcsi <- waiting_lists_per_month[(Hospital_Group == "RCSI"), ]
+saolta <- waiting_lists_per_month[(Hospital_Group == "Saolta"), ]
+university_of_limerick <- waiting_lists_per_month[(Hospital_Group == "UL"), ]
+south_south_west <- waiting_lists_per_month[(Hospital_Group == "South/South West"), ]
 detach(waiting_lists_per_month)
 
 #############################################

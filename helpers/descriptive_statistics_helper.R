@@ -32,11 +32,6 @@ time_series_analysis <- function(data, title = ""){
   # from trend package
   print(trend::sens.slope(ts))
   
-  # Augmented Dickey-Fuller Test - check if series is stationary
-  cat("\n\n------------------------------------\n")
-  # from tseries package, k=12 for 12 month cycle
-  print(tseries::adf.test(ts, k = 12))
-  
   cat("\n\n------------------------------------------------------------------------\n")
   
   return(ts)
