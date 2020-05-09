@@ -1,13 +1,15 @@
 ---
-title: Data Analysis
+title: CA3 - Data Analysis
 subtitle: Health in Ireland
 csl: harvard-limerick.csl
 bibliography: references.bib
 output:
-  pdf_document: 
+  bookdown::pdf_document2:
+    fig_caption: yes
     highlight: tango
     number_sections: no
     toc: no
+    keep_tex: true
     includes:
       in_header: header.tex
 link-citations: yes
@@ -15,14 +17,9 @@ geometry: margin=3cm
 fontfamily: mathpazo
 fontsize: 12pt
 ---
-<style type="text/css">
-
-code.r{
-  font-size: 12px;
-}
-</style>
-
 \setcounter{page}{1}
+\renewcommand{\arraystretch}{1.5}
+
 ```{r setup, include=FALSE}
 knitr::opts_knit$set(root.dir = "/home/danny/MEGA/College/msc_data_analytics/data_science/ca3/hospital_waiting_lists")
 ```
@@ -120,17 +117,19 @@ row_counts <- data.frame(c("OP:", "IPDC:", "IPDC GI:", "Overall:"),
                          c(nrow(op_data), nrow(ipdc_data), nrow(ipdc_gi_data), nrow(all_waiting_lists)))
 colnames(row_counts) <- c("Waiting list", "Patient count")
 ```
-```{r echo=FALSE}
+```{r waiting-list-counts, echo=FALSE}
 kable(row_counts, format="latex", booktabs=TRUE, caption = "Waiting list counts.") %>%
   row_spec(3, hline_after = TRUE) %>%
   kable_styling("striped", position = "center")
 ```
 
 ## Data Cleaning
-### Amalgamating source data
-The first step taken was to combine all data into a single dataset. This was accomplished by initially combining all csv files for each waiting list category with the `combine_csv_data()` function in `helpers/data_prep_helper.R` which uses the `vroom` package. Then the 3 resulting tibbles are combined with `dplyr::bindrows`. The row counts for the individual and combined datasets can be seen in Table 1 while Table 2 shows a sample of rows from the overall data. The format of archive dates varies between Y-m-d and d/m/Y so the `convert_dates()` function that makes use of `libridate::parse_date_time` to convert all to a single datetime format was added to the `data_prep_helper.R` helper file.
+R code referenced in this section is found in `data_prep/data_transformation.R`.
 
-```{r echo=FALSE}
+### Amalgamating source data
+The first step necessary is to combine all data into a single dataset. This is accomplished by initially combining all csv files for each waiting list category with the `combine_csv_data()` function in `helpers/data_prep_helper.R` which uses the `vroom` package. Then the 3 resulting tibbles are combined with `dplyr::bindrows`. The row counts for the individual and combined datasets can be seen in Table \@ref(tab:waiting-list-counts) while Table \@ref(tab:sample-rows) shows a sample of rows from the overall data. The format of archive dates varies between Y-m-d and d/m/Y so the `convert_dates()` function that makes use of `libridate::parse_date_time` to convert all to a single datetime format was added to the `data_prep_helper.R` helper file.
+
+```{r sample-rows, echo=FALSE}
 kable(all_waiting_lists[sample(nrow(all_waiting_lists), 15), ], 
       format="latex", booktabs=TRUE, caption = "Random sample of rows from the combined data.") %>% 
   row_spec(0, angle = 45) %>%
@@ -139,7 +138,7 @@ kable(all_waiting_lists[sample(nrow(all_waiting_lists), 15), ],
 
 
 
-```{r missing_values, echo=FALSE, fig.align= "center", fig.cap="Missing values."}
+```{r missing-values, echo=FALSE, fig.align= "center", fig.cap="Missing values."}
 missing_values <- aggr(all_waiting_lists, prop = FALSE, 
                        numbers = TRUE,
                        labels = names(all_waiting_lists),
@@ -147,7 +146,7 @@ missing_values <- aggr(all_waiting_lists, prop = FALSE,
                        )
 ```
 ### Dealing with missing values
-Figure 1 displays the missing values from the combined data. The following steps were taken to handle these.
+Missing values from the combined data are displayed in Figure \@ref(fig:missing-values). The following steps were taken to handle these.
 
 The missing case types are expected for all outpatient records because that column does not exist in the source csv so those are assigned a value of "Outpatient":
 \small
@@ -291,351 +290,187 @@ unique(all_waiting_lists[, c("Hospital_Group")])
 ```
 \normalsize
 
+A csv file named `combined_waiting_lists.csv` containing the processed data is found in the `data_prep` directory.
+
 \newpage
 ## Choice of Statistical Methods
-Figure 2 shows all waiting lists plotted as a bar chart to give a general view of how the data has changed over time. The trend here appears to be generally ever growing numbers of patients waiting more than a year for procedures while those waiting less than a year saw a steady increase from 2014 to 2017 and a stabling thereafter. 
-```{r totals_img, fig.align = "center", out.width="70%", out.height="70%", fig.cap = "Totals waiting list numbers by year.", echo = FALSE, fig.pos="h"}
+Figure \@ref(fig:totals-img) shows all waiting lists plotted as a bar chart to give a general view of how the data has changed over time. The trend here appears to be generally ever growing numbers of patients waiting more than a year for procedures while those waiting less than a year saw a steady increase from 2014 to 2017 and a stabling thereafter. 
+```{r totals-img, fig.align = "center", out.width="70%", out.height="70%", fig.cap = "Totals waiting list numbers by year.", echo = FALSE, fig.pos="h"}
 knitr::include_graphics(here::here("documentation/images", "waiting_list_totals.png"))
 ```
 
-To help decide what type of statistical methods are suitable for use of this data, density plots for each hospital group were generated (Figure 3). All groups have have skewed distributions meaning some type of non-parametric method must be used.
-```{r densities_img, fig.align = "center", fig.cap = "Density plot for each Irish hospital group.", echo = FALSE}
+To help decide what type of statistical methods are suitable for use of this data, density plots for each hospital group were generated, see Figure \@ref(fig:densities-img). All groups have have skewed distributions meaning some type of non-parametric method must be used.
+```{r densities-img, fig.align = "center", fig.cap = "Density plot for each Irish hospital group.", echo = FALSE}
 knitr::include_graphics(here::here("documentation/images", "densities.png"))
 ```
 
 Based on the data being time series in nature and not normally distributed the chosen statistical tests to answer the research question are the Mann-Kendall test to determine if montonic trends are present and Sen's slope test to determine the magnitude of trends if they exist.
 
+\newpage
 # Hypothesis Testing
-The hypothesis being tested on the waiting list time series data with the stated statistical methods is as follows:
+The hypothesis being tested on the waiting list time series data with the Mann-Kendall test is as follows:
 
 $H_0$: No monotonic trend exists
+
 $H_1$: Monotonic trend exists
 
-The `Kendall` R package...
+Code relating to the testing of this hypothesis is found in the `time_series_analysis` function in `helpers/descriptive_statistics_helper.R`.
 
-To perform the Sen's slope test the `trend` package was...
+The Mann-Kendall test is performed with `Kendall::MannKendall` which returns a score and a p-value, 2-sided in this case. For this test, a confidence interval of 95% is used meaning a p-value of less than 0.05 is necessary to reject the null hypothesis
 
-The overall data is split into individual datasets for each hospital group in order to facilitate testing. The next section discusses the results obtained by using the combined tests and provides graphs of the decomposition of each time-series.
+The Sen's slope test is performed to determine the magnitude of the monotonic trend, if present. The `trend::sens.slope` function provides this test.
+
+The overall data is split into individual datasets for each hospital group in order to facilitate testing. The next section discusses the results obtained by using this combination of tests.
 
 \newpage
 # Results
+Results from performing the Mann-Kendall and Sen's Slope tests on the overall data and each of the individual hospital groups can be seen in Table \@ref(tab:timeseries). Code relevant to this section is found in `data_analysis/analyse_prepared_waiting_list_data.`. Discussion about the results is featured below and plots of the decomposition of each time series group can be found in the appendix.
 
-### All Groups:
-![](images/ts_overall_lt1yr.png)
+\begin{table*}[!htbp]
+	\centering
+	\caption{Time series analysis results}\label{tab:timeseries}
+	\begin{threeparttable}
+  	\begin{tabular}{ll|lll|ll}
+    	\toprule
+    	  & & \multicolumn{3}{c}{\bfseries Mann-Kendall} & \multicolumn{2}{c}{\bfseries Sen's Slope} \\ \hline
+    	  
+    		& & \bfseries Score & \bfseries p-value & \bfseries Result & \bfseries Slope & \bfseries p-value  \\
+    		\midrule
+    		\multirow{2}{*}{All}      & < 1 Yr (\hyperref[fig:ts-overall-lt1yr]{Fig. 4}) 
+    		                          & 232 & 0.26146 & No Trend & 58.38 & 0.2615 \\
+    		                          
+    		                          & > 1 Yr (\hyperref[fig:ts-overall-gt1yr]{Fig. 5}) 
+    		                          & 1084 & < 0.0001 & Increasing & 77.89 & < 0.0001 \\ \hline
+    		                          
+        \multirow{2}{*}{CHI}      & < 1 Yr (\hyperref[fig:ts-chi-lt1yr]{Fig. 6}) 
+                                  & 1508 & < 0.0001 & Increasing & 126.61 & < 0.0001 \\
+                                  
+    		                          & > 1 Yr (\hyperref[fig:ts-chi-gt1yr]{Fig. 7})
+    		                          & 2238 & < 0.0001 & Increasing & 312.91 & < 0.0001 \\ \hline
+    		                          
+        \multirow{2}{*}{Dub. Mid.} & < 1 Yr (\hyperref[fig:ts-dm-lt1yr]{Fig. 8}) 
+                                  & 1966 & < 0.0001 & Increasing & 158.69 & < 0.0001 \\
+                                  
+    		                          & > 1 Yr (\hyperref[fig:ts-dm-gt1yr]{Fig. 9})
+    		                          & 2098 & < 0.0001 & Increasing & 415.79 & < 0.0001 \\ \hline
+    		                          
+        \multirow{2}{*}{Ire. East} & < 1 Yr (\hyperref[fig:ts-ie-lt1yr]{Fig. 10}) 
+                                  & 2180 & < 0.0001 & Increasing & 158.69 & < 0.0001 \\
+                                  
+    		                          & > 1 Yr (\hyperref[fig:ts-ie-gt1yr]{Fig. 11})
+    		                          & 2314 & < 0.0001 & Increasing & 515.56 & < 0.0001 \\ \hline
+    		               
+        \multirow{2}{*}{RCSI} & < 1 Yr (\hyperref[fig:ts-rcsi-lt1yr]{Fig. 12}) 
+                                  & 884 & < 0.0001 & Increasing & 65.95 & < 0.0001 \\
+                                  
+    		                          & > 1 Yr (\hyperref[fig:ts-rcsi-gt1yr]{Fig. 13})
+    		                          & 648 & 0.0016596 & Increasing & 103.62 & 0.00166 \\ \hline
+    		                          
+        \multirow{2}{*}{Saolta} & < 1 Yr (\hyperref[fig:ts-saolta-lt1yr]{Fig. 14}) 
+                                  & 2042 & < 0.0001 & Increasing & 235.46 & < 0.0001 \\
+                                  
+    		                          & > 1 Yr (\hyperref[fig:ts-saolta-gt1yr]{Fig. 15})
+    		                          & 2078 & < 0.0001 & Increasing & 382.67 & < 0.0001 \\ \hline
+    		                          
+        \multirow{2}{*}{UL} & < 1 Yr (\hyperref[fig:ts-ul-lt1yr]{Fig. 16}) 
+                                  & 2152 & < 0.0001 & Increasing & 171.69 & < 0.0001 \\
+                                  
+    		                          & > 1 Yr (\hyperref[fig:ts-ul-gt1yr]{Fig. 17})
+    		                          & 2404 & < 0.0001 & Increasing & 284.23 & < 0.0001 \\ \hline
+    		                         
+        \multirow{2}{*}{South/SW} & < 1 Yr (\hyperref[fig:ts-ssw-lt1yr]{Fig. 18}) 
+                                  & 931 & < 0.0001 & Increasing & 134.20 & < 0.0001 \\
+                                  
+    		                          & > 1 Yr (\hyperref[fig:ts-ssw-gt1yr]{Fig. 19})
+    		                          & 2110 & < 0.0001 & Increasing & 521.42 & < 0.0001 \\ \hline
+    	\bottomrule
+  	\end{tabular}
+  	\begin{tablenotes}
+      \small
+      \item Note: p-values have been rounded for readability when very small values were found. For example, the actual p-value for MK test on all waiting list < 1 year is 1.1921e-07, displayed here as < 0.0001. Sen's slope values have also been rounded (to 2 decimal places). 
+    \end{tablenotes}
+	\end{threeparttable}
+\end{table*}
 
-\center __Mann-Kendall Test:__ \center
+\newpage
+In general, increasing monotonic trends were the norm found when applying the stated statistical techniques to the groups of waiting lists. The result for the group containing all patients waiting less than a year is the only one that does not conform to this generality. Its Mann-Kendall score (232) indicates it is a mainly increasing time series though from the corresponding graph (\hyperref[fig:ts-overall-lt1yr]{Figure 4}) it is clear there is no consistent trend present. With the exception of the greater than a year waiting group for RCSI, all other p-values for the Mann-Kendall test are extremely low. Numbers for that RCSI group have seen a steady decline since 2018 (\hyperref[fig:ts-rcsi-gt1yr]{Figure 13}) thus explaining the reduced confidence level of the test.
 
-Score:          p-value (2-sided): 
--------------   -------------------
-232             0.26146           
-
-\center __Sen's Slope Test:__ \center
-
-Sen's slope:    p-value: 
--------------   -------------------
-58.38278        0.2615   
-
-Mann-Kendall Test:
-tau = 0.0908, 2-sided pvalue =0.26146
-S: 232
-Variance of S: 42316
-
-Sen's slope:
-z = 1.1229, n = 72, p-value = 0.2615
-alternative hypothesis: true z is not equal to 0
-95 percent confidence interval:
- -42.92857 174.47458
-sample estimates:
-Sen's slope 
-   58.38278 
-
-
-![](images/ts_overall_gt1yr.png)
-------------------------------------
-Mann-Kendall Test:
-tau = 0.424, 2-sided pvalue =1.1921e-07
-S: 1084
-Variance of S: 42316
-
-------------------------------------
-
-Sen's slope:
-z = 5.2647, n = 72, p-value = 1.404e-07
-alternative hypothesis: true z is not equal to 0
-95 percent confidence interval:
-  42.81818 126.17949
-sample estimates:
-Sen's slope 
-   77.89479 
-   
-
-### Children's Health Ireland:
-![](images/ts_chi_lt1yr.png)
-------------------------------------
-Mann-Kendall Test:
-tau = 0.59, 2-sided pvalue =< 2.22e-16
-S: 1508
-Variance of S: 42316
-
-------------------------------------
-Sen's slope:
-z = 7.3259, n = 72, p-value = 2.373e-13
-alternative hypothesis: true z is not equal to 0
-95 percent confidence interval:
-  69.32353 152.55556
-sample estimates:
-Sen's slope 
-   126.6111 
-
-![](images/ts_chi_gt1yr.png)
-
-------------------------------------
-Mann-Kendall Test:
-tau = 0.876, 2-sided pvalue =< 2.22e-16
-S: 2238
-Variance of S: 42316
-
-------------------------------------
-
-Sen's slope:
-z = 10.875, n = 72, p-value < 2.2e-16
-alternative hypothesis: true z is not equal to 0
-95 percent confidence interval:
- 294.8261 334.4231
-sample estimates:
-Sen's slope 
-   312.9069
-
-### Dublin Midland Hospital Group:
-![](images/ts_dm_lt1yr.png)
-
-------------------------------------
-Mann-Kendall Test:
-tau = 0.769, 2-sided pvalue =< 2.22e-16
-S: 1966
-Variance of S: 42316
-
-------------------------------------
-
-Sen's slope:
-z = 9.5524, n = 72, p-value < 2.2e-16
-alternative hypothesis: true z is not equal to 0
-95 percent confidence interval:
- 137.8333 181.7857
-sample estimates:
-Sen's slope 
-   158.6897 
-   
-![](images/ts_dm_gt1yr.png)
-
-------------------------------------
-Mann-Kendall Test:
-tau = 0.821, 2-sided pvalue =< 2.22e-16
-S: 2098
-Variance of S: 42316
-
-------------------------------------
-
-Sen's slope:
-z = 10.194, n = 72, p-value < 2.2e-16
-alternative hypothesis: true z is not equal to 0
-95 percent confidence interval:
- 382.5000 459.6316
-sample estimates:
-Sen's slope 
-    415.794 
-
-### Ireland East Hospital Group:
-![](images/ts_ie_lt1yr.png)
-
-------------------------------------
-Mann-Kendall Test:
-tau = 0.853, 2-sided pvalue =< 2.22e-16
-S: 2180
-Variance of S: 42316
-
-------------------------------------
-
-Sen's slope:
-z = 10.593, n = 72, p-value < 2.2e-16
-alternative hypothesis: true z is not equal to 0
-95 percent confidence interval:
- 332.0000 377.6875
-sample estimates:
-Sen's slope 
-    354.628 
-    
-![](images/ts_ie_gt1yr.png)
-
-------------------------------------
-Mann-Kendall Test:
-tau = 0.905, 2-sided pvalue =< 2.22e-16
-S: 2314
-Variance of S: 42316
-
-------------------------------------
-
-Sen's slope:
-z = 11.244, n = 72, p-value < 2.2e-16
-alternative hypothesis: true z is not equal to 0
-95 percent confidence interval:
- 493.4909 554.6400
-sample estimates:
-Sen's slope 
-   515.5644 
-
-### RCSI Hospitals Group:
-![](images/ts_rcsi_lt1yr.png)
-
-------------------------------------
-Mann-Kendall Test:
-tau = 0.346, 2-sided pvalue =1.7643e-05
-S: 884
-Variance of S: 42316
-
-------------------------------------
-
-Sen's slope:
-z = 4.2925, n = 72, p-value = 1.767e-05
-alternative hypothesis: true z is not equal to 0
-95 percent confidence interval:
- 36.77778 95.78846
-sample estimates:
-Sen's slope 
-    65.9473 
-    
-![](images/ts_rcsi_gt1yr.png)
-
-------------------------------------
-Mann-Kendall Test:
-tau = 0.254, 2-sided pvalue =0.0016596
-S: 648
-Variance of S: 42316
-
-------------------------------------
-
-Sen's slope:
-z = 3.1452, n = 72, p-value = 0.00166
-alternative hypothesis: true z is not equal to 0
-95 percent confidence interval:
-  41.9500 154.6111
-sample estimates:
-Sen's slope 
-   103.6165 
-
-### Saolta University Health Care Group:
-![](images/ts_saolta_lt1yr.png)
-------------------------------------
-Mann-Kendall Test:
-tau = 0.799, 2-sided pvalue =< 2.22e-16
-S: 2042
-Variance of S: 42316
-
-------------------------------------
-
-Sen's slope:
-z = 9.9218, n = 72, p-value < 2.2e-16
-alternative hypothesis: true z is not equal to 0
-95 percent confidence interval:
- 203.4872 261.2941
-sample estimates:
-Sen's slope 
-   235.4559 
-   
-![](images/ts_saolta_gt1yr.png)
-------------------------------------
-Mann-Kendall Test:
-tau = 0.813, 2-sided pvalue =< 2.22e-16
-S: 2078
-Variance of S: 42316
-
-------------------------------------
-
-Sen's slope:
-z = 10.097, n = 72, p-value < 2.2e-16
-alternative hypothesis: true z is not equal to 0
-95 percent confidence interval:
- 343.6 417.5
-sample estimates:
-Sen's slope 
-   382.6728 
-
-### University of Limerick Hospital Group:
-![](images/ts_ul_lt1yr.png)
-
-------------------------------------
-Mann-Kendall Test:
-tau = 0.842, 2-sided pvalue =< 2.22e-16
-S: 2152
-Variance of S: 42316
-
-------------------------------------
-
-Sen's slope:
-z = 10.457, n = 72, p-value < 2.2e-16
-alternative hypothesis: true z is not equal to 0
-95 percent confidence interval:
- 153.9362 201.1639
-sample estimates:
-Sen's slope 
-   171.6905 
-   
-![](images/ts_ul_gt1yr.png)
-------------------------------------
-Mann-Kendall Test:
-tau = 0.941, 2-sided pvalue =< 2.22e-16
-S: 2404
-Variance of S: 42316
-
-------------------------------------
-
-Sen's slope:
-z = 11.682, n = 72, p-value < 2.2e-16
-alternative hypothesis: true z is not equal to 0
-95 percent confidence interval:
- 273.9123 294.2500
-sample estimates:
-Sen's slope 
-   284.2346 
-
-### South/South West Hospital Group:
-![](images/ts_ssw_lt1yr.png)
-------------------------------------
-Mann-Kendall Test:
-tau = 0.364, 2-sided pvalue =6.1989e-06
-S: 931
-Variance of S: 42315
-
-------------------------------------
-
-Sen's slope:
-z = 4.521, n = 72, p-value = 6.154e-06
-alternative hypothesis: true z is not equal to 0
-95 percent confidence interval:
-  88.61538 174.45714
-sample estimates:
-Sen's slope 
-   134.2022 
-   
-![](images/ts_ssw_gt1yr.png)
-------------------------------------
-Mann-Kendall Test:
-tau = 0.826, 2-sided pvalue =< 2.22e-16
-S: 2110
-Variance of S: 42316
-
-------------------------------------
-
-Sen's slope:
-z = 10.252, n = 72, p-value < 2.2e-16
-alternative hypothesis: true z is not equal to 0
-95 percent confidence interval:
- 461.3333 584.3929
-sample estimates:
-Sen's slope 
-   521.4249 
+Using the Sen's slope test gives an indication of how great the magnitude of a given trend is which provides a useful means for comparing trends. The patients waiting more than a year for procedures in South/South West Hospital group (\hyperref[fig:ts-ssw-gt1yr]{Figure 19}) returned the highest slope value. This signifies that the increasing trend observed has the largest average growth rate of the groups studied. 
 
 # Conclusions
 
 # References
+<div id="refs"></div>
+
+\newpage
+
+# Appendix
+\appendix
+### Decomposed Time Series Plots
+The following plots show the seasonal and trend decomposition for each of the waiting list groups using Loess (locally estimated scatterplot smoothing). This was achieved by calling the `stats::stl` function on each time series when plotting.
+
+```{r ts-overall-lt1yr, fig.align = "center", fig.cap = "Time Series Decomposition - Overall patient numbers waiting less than a year.", echo = FALSE, out.width="70%"}
+knitr::include_graphics(here::here("documentation/images", "ts_overall_lt1yr.png"))
+```
+
+
+```{r ts-overall-gt1yr, fig.align = "center", fig.cap = "Time Series Decomposition - Overall patient numbers waiting more than a year.", echo = FALSE, out.width="70%"}
+knitr::include_graphics(here::here("documentation/images", "ts_overall_gt1yr.png"))
+```
+
+```{r ts-chi-lt1yr, fig.align = "center", fig.cap = "Time Series Decomposition - Children's Health Ireland patient numbers waiting less than a year.", echo = FALSE, out.width="70%"}
+knitr::include_graphics(here::here("documentation/images", "ts_chi_lt1yr.png"))
+```
+
+```{r ts-chi-gt1yr, fig.align = "center", fig.cap = "Time Series Decomposition - Children's Health Ireland patient numbers waiting more than a year.", echo = FALSE, out.width="70%"}
+knitr::include_graphics(here::here("documentation/images", "ts_chi_gt1yr.png"))
+```
+
+```{r ts-dm-lt1yr, fig.align = "center", fig.cap = "Time Series Decomposition - Dublin Midland Hospital Group patient numbers waiting less than a year.", echo = FALSE, out.width="70%"}
+knitr::include_graphics(here::here("documentation/images", "ts_dm_lt1yr.png"))
+```
+   
+```{r ts-dm-gt1yr, fig.align = "center", fig.cap = "Time Series Decomposition - Dublin Midland Hospital Group patient numbers waiting more than a year.", echo = FALSE, out.width="70%"}
+knitr::include_graphics(here::here("documentation/images", "ts_dm_gt1yr.png"))
+```
+
+```{r ts-ie-lt1yr, fig.align = "center", fig.cap = "Time Series Decomposition - Ireland East Hospital Group patient numbers waiting less than a year.", echo = FALSE, out.width="70%"}
+knitr::include_graphics(here::here("documentation/images", "ts_ie_lt1yr.png"))
+```
+    
+```{r ts-ie-gt1yr, fig.align = "center", fig.cap = "Time Series Decomposition - Ireland East Hospital Group patient numbers waiting more than a year.", echo = FALSE, out.width="70%"}
+knitr::include_graphics(here::here("documentation/images", "ts_ie_gt1yr.png"))
+```
+
+```{r ts-rcsi-lt1yr, fig.align = "center", fig.cap = "Time Series Decomposition - RCSI Hospitals Group patient numbers waiting less than a year.", echo = FALSE, out.width="70%"}
+knitr::include_graphics(here::here("documentation/images", "ts_rcsi_lt1yr.png"))
+```
+    
+```{r ts-rcsi-gt1yr, fig.align = "center", fig.cap = "Time Series Decomposition - RCSI Hospitals Group patient numbers waiting more than a year.", echo = FALSE, out.width="70%"}
+knitr::include_graphics(here::here("documentation/images", "ts_rcsi_gt1yr.png"))
+```
+
+```{r ts-saolta-lt1yr, fig.align = "center", fig.cap = "Time Series Decomposition - Saolta University Health Care Group patient numbers waiting less than a year.", echo = FALSE, out.width="70%"}
+knitr::include_graphics(here::here("documentation/images", "ts_saolta_lt1yr.png"))
+```
+   
+```{r ts-saolta-gt1yr, fig.align = "center", fig.cap = "Time Series Decomposition - Saolta University Health Care Group patient numbers waiting more than a year.", echo = FALSE, out.width="70%"}
+knitr::include_graphics(here::here("documentation/images", "ts_saolta_gt1yr.png"))
+```
+
+```{r ts-ul-lt1yr, fig.align = "center", fig.cap = "Time Series Decomposition - University of Limerick Hospital Group patient numbers waiting less than a year.", echo = FALSE, out.width="70%"}
+knitr::include_graphics(here::here("documentation/images", "ts_ul_lt1yr.png"))
+```
+   
+```{r ts-ul-gt1yr, fig.align = "center", fig.cap = "Time Series Decomposition - University of Limerick Hospital Group patient numbers waiting more than a year.", echo = FALSE, out.width="70%"}
+knitr::include_graphics(here::here("documentation/images", "ts_ul_gt1yr.png"))
+```
+
+```{r ts-ssw-lt1yr, fig.align = "center", fig.cap = "Time Series Decomposition - South/South West Hospital Group patient numbers waiting less than a year.", echo = FALSE, out.width="70%"}
+knitr::include_graphics(here::here("documentation/images", "ts_ssw_lt1yr.png"))
+```
+
+```{r ts-ssw-gt1yr, fig.align = "center", fig.cap = "Time Series Decomposition - South/South West Hospital Group patient numbers waiting more than a year.", echo = FALSE, out.width="70%"}
+knitr::include_graphics(here::here("documentation/images", "ts_ssw_gt1yr.png"))
+```
 
