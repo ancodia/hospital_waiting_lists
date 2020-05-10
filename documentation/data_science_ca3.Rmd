@@ -1,5 +1,5 @@
 ---
-title: CA3 - Data Analysis
+title: CA 3 - Data Analysis
 subtitle: Health in Ireland
 csl: harvard-limerick.csl
 bibliography: references.bib
@@ -19,6 +19,7 @@ fontsize: 12pt
 ---
 \setcounter{page}{1}
 \renewcommand{\arraystretch}{1.5}
+\renewcommand{\footnotesize}{\small \justify}
 
 ```{r setup, include=FALSE}
 knitr::opts_knit$set(root.dir = "/home/danny/MEGA/College/msc_data_analytics/data_science/ca3/hospital_waiting_lists")
@@ -44,9 +45,9 @@ source("helpers/descriptive_statistics_helper.R")
 \endgroup
 
 # Abstract
- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at turpis eget ligula vestibulum blandit sed ut quam. Morbi scelerisque ornare odio sed commodo. Cras non nisi et nibh tristique tempor. Donec hendrerit risus dictum lectus rutrum, vel maximus lectus pharetra. Praesent lectus elit, tristique non ante nec, bibendum accumsan odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus sagittis mauris rhoncus est ultricies aliquet. Pellentesque in sapien eu lacus tincidunt commodo vel vel tellus. Pellentesque semper convallis dui a congue.
+Waiting lists for procedures in Irish public hospitals are some of the longest in Europe. The National Treatment Purchase Fund (NTPF) is the organisation responsible with collecting data about patients on these lists. This project uses the NTPF data to examine the question of what trends are present within it and determine what similarities or differences exist between those trends. To answer this research question the Mann-Kendall and Sen's slope statistical tests are applied to the data to verify if trends exist and the magnitude of those trends respectively. 
 
-Ut finibus ante mi, ac ornare nisl vestibulum ac. Nunc volutpat at orci vel rutrum. Nam blandit enim nec nunc finibus, nec dignissim est imperdiet. Donec id rutrum ex, et mattis leo. Nulla elementum augue id convallis ullamcorper. Pellentesque non egestas libero. Mauris dolor ex, mattis a pellentesque sed, consectetur nec sapien. Vivamus sit amet condimentum est, sed aliquam ipsum. Nunc in ipsum sed urna aliquam euismod nec sit amet arcu. Fusce ac lorem quis massa imperdiet mattis in ut lectus. Etiam nulla arcu, aliquam ac mauris sit amet, fermentum fermentum risus. Praesent eu cursus dolor, eget egestas augue. Duis vitae maximus lectus. 
+The results returned from applying these tests show that, with the exception of the group containing all patents waiting under a year for a procedure, increasing trends are the norm. This result confirms that serious issues with the operation of the Irish health system need to be addressed and further research could build on what is presented here to investigate the problems in finer detail.  
 
 \newpage
 
@@ -55,21 +56,15 @@ The volume of patients waiting for hospital procedures and the length of these w
 
 The National Treatment Purchase Fund (NTPF) is the organisation assigned the task by the Irish government of collecting, collating and validating data about individuals who are waiting for treatment in public hospitals. This is the source of data for the current project.
 
-A description of the data and steps taken to clean it are the feature of the next section. This data description section also includes justification for choices of statistical methods to aid in answering the research question displayed below. The sections that follow cover hypothesis testing for the waiting list data and then the application of the chosen analytic techniques with reporting and discussion of results included.
+A description of the data and steps taken to clean it are the feature of the next section. This data description section also includes justification for choices of statistical methods to aid in answering the research question displayed below. The sections that follow this cover the hypothesis testing to be carried on the waiting list data and reporting and discussion of results obtained from the analysis undertaken.
 
-## Research Question:
+### Research Question
 The NTPF waiting list data will be used in this project to answer the following research question:
 
 > What differences, if any, exist among trends found in Irish hospital group waiting list figures from recent years?
 
 # Data Description
-The data for this project comes from that collected by NTPF for outpatient (OP) [^1], inpatient/day case (IPDC) [^2] and GI endoscopy (IPDC GI) [^3] waiting list numbers for all public hospitals across Ireland. The data that is being considered is monthly totals from January 2014 to December 2019. This section describes how the data was prepared for analysis and which statistical methods were chosen to assist in answering the research question.
-
-[^1]: Outpatient Waiting Lists: https://data.ehealthireland.ie/dataset/op-waiting-list-by-group-hospital
-
-[^2]: Inpatient and Day case Waiting Lists: https://data.ehealthireland.ie/dataset/ipdc-waiting-list-by-group-hospital
-
-[^3]: GI Endoscopy Waiting Lists: https://data.ehealthireland.ie/dataset/ipdc-gi-endoscopy-by-group-hospital
+The data for this project comes from that collected by NTPF for outpatient (OP)^[https://data.ehealthireland.ie/dataset/op-waiting-list-by-group-hospital], inpatient/day case (IPDC)^[https://data.ehealthireland.ie/dataset/ipdc-waiting-list-by-group-hospital] and GI endoscopy (IPDC GI)^[https://data.ehealthireland.ie/dataset/ipdc-gi-endoscopy-by-group-hospital] waiting list numbers for all public hospitals across Ireland. The data that is being considered is monthly totals from January 2014 to December 2019. This section describes how the data was prepared for analysis and which statistical methods were chosen to assist in answering the research question.
 
 ```{r include=FALSE}
 columns_ipdc <- c("Archive_Date",
@@ -123,6 +118,7 @@ kable(row_counts, format="latex", booktabs=TRUE, caption = "Waiting list counts.
   kable_styling("striped", position = "center")
 ```
 
+\newpage
 ## Data Cleaning
 R code referenced in this section is found in `data_prep/data_transformation.R`.
 
@@ -173,7 +169,7 @@ nrow(all_waiting_lists)
 All other missing values are deemed irrelevant for the current project, so no action is taken.
 
 ### Time band formatting
-The time bands variable originally had variation of the sample values:
+The time bands variable originally had variations of the same values:
 \small
 ```{r}
 unique(all_waiting_lists[, c("Time_Bands")])
@@ -217,7 +213,7 @@ unique(all_waiting_lists[, c("Time_Bands")])
 \normalsize
 
 ### Removal of unnecessary variables
-Columns that aren't necessary for this project were removed for the dataset. The analysis will examine trends by using the 7 hospital groups and the 2 newly created waiting list time band so only Archive_Date, Hospital_Group, Time_Bands and Total variables are kept.
+Columns that aren't necessary for this project were removed from the dataset. The analysis will examine trends by using the 7 hospital groups and the 2 newly created waiting list time band so only the Archive_Date, Hospital_Group, Time_Bands and Total variables are kept.
 
 Structure before removal:
 \small
@@ -242,7 +238,7 @@ str(all_waiting_lists, width = 70, strict.width = "cut")
 \normalsize
 
 ### Final clean up
-The final steps in the data cleaning process involved abbreviating the hospital group names and excluding records from 2020 in the data as these only consist of January figures. The name abbreviation was done to accomodate displaying the names in charts that follow. 
+The final steps in the data cleaning process involved abbreviating the hospital group names and excluding records from 2020 in the data as these only consist of January figures. The name abbreviation was done to accommodate displaying the names in charts that follow. 
 
 Note: The Children's Hospital Group was renamed to Children's Health Ireland in 2018 so these are classed as a single group.
 
@@ -294,17 +290,18 @@ A csv file named `combined_waiting_lists.csv` containing the processed data is f
 
 \newpage
 ## Choice of Statistical Methods
+\label{sec:stats-methods}
 Figure \@ref(fig:totals-img) shows all waiting lists plotted as a bar chart to give a general view of how the data has changed over time. The trend here appears to be generally ever growing numbers of patients waiting more than a year for procedures while those waiting less than a year saw a steady increase from 2014 to 2017 and a stabling thereafter. 
 ```{r totals-img, fig.align = "center", out.width="70%", out.height="70%", fig.cap = "Totals waiting list numbers by year.", echo = FALSE, fig.pos="h"}
 knitr::include_graphics(here::here("documentation/images", "waiting_list_totals.png"))
 ```
 
-To help decide what type of statistical methods are suitable for use of this data, density plots for each hospital group were generated, see Figure \@ref(fig:densities-img). All groups have have skewed distributions meaning some type of non-parametric method must be used.
+To help decide what type of statistical methods are suitable for use on this data, density plots for each hospital group were generated, see Figure \@ref(fig:densities-img). All groups have skewed distributions meaning some type of non-parametric methods must be used.
 ```{r densities-img, fig.align = "center", fig.cap = "Density plot for each Irish hospital group.", echo = FALSE}
 knitr::include_graphics(here::here("documentation/images", "densities.png"))
 ```
 
-Based on the data being time series in nature and not normally distributed the chosen statistical tests to answer the research question are the Mann-Kendall test to determine if montonic trends are present and Sen's slope test to determine the magnitude of trends if they exist.
+Based on the data being time series in nature and not normally distributed the chosen statistical tests to answer the research question are the Mann-Kendall test to determine if monotonic trends are present and the Sen's slope test to check the magnitude of trends, if they exist.
 
 \newpage
 # Hypothesis Testing
@@ -324,7 +321,7 @@ The overall data is split into individual datasets for each hospital group in or
 
 \newpage
 # Results
-Results from performing the Mann-Kendall and Sen's Slope tests on the overall data and each of the individual hospital groups can be seen in Table \@ref(tab:timeseries). Code relevant to this section is found in `data_analysis/analyse_prepared_waiting_list_data.`. Discussion about the results is featured below and plots of the decomposition of each time series group can be found in the appendix.
+Results from performing the Mann-Kendall and Sen's Slope tests on the overall data and each of the individual hospital groups can be seen in Table \@ref(tab:timeseries). Code relevant to this section is found in `data_analysis/analyse_prepared_waiting_list_data.`. Discussion about the results is featured below and plots of the decomposition of each time series group can be found in the \hyperref[sec:appendix]{Appendix}.
 
 \begin{table*}[!htbp]
 	\centering
@@ -393,11 +390,16 @@ Results from performing the Mann-Kendall and Sen's Slope tests on the overall da
 \end{table*}
 
 \newpage
-In general, increasing monotonic trends were the norm found when applying the stated statistical techniques to the groups of waiting lists. The result for the group containing all patients waiting less than a year is the only one that does not conform to this generality. Its Mann-Kendall score (232) indicates it is a mainly increasing time series though from the corresponding graph (\hyperref[fig:ts-overall-lt1yr]{Figure 4}) it is clear there is no consistent trend present. With the exception of the greater than a year waiting group for RCSI, all other p-values for the Mann-Kendall test are extremely low. Numbers for that RCSI group have seen a steady decline since 2018 (\hyperref[fig:ts-rcsi-gt1yr]{Figure 13}) thus explaining the reduced confidence level of the test.
+In general, increasing monotonic trends were the norm found when applying the stated statistical techniques to the groups of waiting lists. The result for the group containing all patients waiting less than a year is the only one that does not conform to this generality. Its Mann-Kendall score (232) indicates it is a mainly increasing time series, although from the corresponding graph (\hyperref[fig:ts-overall-lt1yr]{Figure 4}) it is clear there is no consistent trend present. With the exception of the greater than a year waiting group for RCSI, all other p-values for the Mann-Kendall test are extremely low. Numbers for that RCSI group have seen a steady decline since 2018 (\hyperref[fig:ts-rcsi-gt1yr]{Figure 13}) thus explaining the reduced confidence level of the test.
 
-Using the Sen's slope test gives an indication of how great the magnitude of a given trend is which provides a useful means for comparing trends. The patients waiting more than a year for procedures in South/South West Hospital group (\hyperref[fig:ts-ssw-gt1yr]{Figure 19}) returned the highest slope value. This signifies that the increasing trend observed has the largest average growth rate of the groups studied. 
+Using the Sen's slope test gives an indication of how great the magnitude of a given trend is which provides a useful means for comparing similar trends. The patients waiting more than a year for procedures in South/South West Hospital group (\hyperref[fig:ts-ssw-gt1yr]{Figure 19}) returned the highest slope value. This signifies that the increasing trend observed has the largest average growth rate of the groups studied. 
 
 # Conclusions
+The stated aim of this project was to examine trends in waiting list data for Irish public hospitals and determine if any significant differences are observable. To enable this work, data collected by the NTPF for each category of waiting was gathered and processed. The processing involved combining csv files containing monthly waiting list figures going back as far as January 2014. The source data contains records for each list speciality, hospital and trimonthly time band slots. Categorisation was performed on the overall dataset, focused on dividing it into hospital groupings and waiting time bands of less than or greater than a year to facilitate the analysis section of this research.
+
+To answer the project's research question, the Mann-Kendall and Sen's slope statistical trend tests were applied to each of the groups created from the waiting list data. The general result found from these tests was that all of the observed waiting list groups feature an increasing monotonic trend, except the combination of all patients waiting for less than a year. The group containing patient numbers waiting for longer than a year with South/South West Hospital group hospitals returned the highest magnitude from the use of the Sen's slope test. These tests confirmed the assumption made when the total figures were examined initially that increasing trends are the norm (see \hyperref[sec:stats-methods]{Choice of Statistical Methods})
+
+Further work on this research that was neglected from the scope of this project due to time constraints is to examine how trends differ between individual procedure waiting lists. Knowing where the main problem areas exist with evidence confirmed with statistical methods could aid the Department of Health in distributing resources to areas most in need.
 
 # References
 <div id="refs"></div>
@@ -405,7 +407,9 @@ Using the Sen's slope test gives an indication of how great the magnitude of a g
 \newpage
 
 # Appendix
+\label{sec:appendix}
 \appendix
+
 ### Decomposed Time Series Plots
 The following plots show the seasonal and trend decomposition for each of the waiting list groups using Loess (locally estimated scatterplot smoothing). This was achieved by calling the `stats::stl` function on each time series when plotting.
 
