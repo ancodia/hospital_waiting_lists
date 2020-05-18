@@ -1,0 +1,83 @@
+---
+title: CA 4 - Predictive Modelling
+subtitle: Health in Ireland
+csl: harvard-limerick.csl
+bibliography: references.bib
+output:
+  bookdown::pdf_document2:
+    fig_caption: yes
+    highlight: tango
+    number_sections: no
+    toc: no
+    keep_tex: true
+    includes:
+      in_header: header.tex
+link-citations: yes
+geometry: margin=3cm
+fontfamily: mathpazo
+fontsize: 12pt
+---
+\setcounter{page}{1}
+\renewcommand{\arraystretch}{1.5}
+\renewcommand{\footnotesize}{\small \justify}
+
+```{r setup, include=FALSE}
+knitr::opts_knit$set(root.dir = "/home/danny/MEGA/College/msc_data_analytics/data_science/ca3_4/hospital_waiting_lists")
+```
+```{r include=FALSE}
+library(kableExtra)
+library(dplyr)
+source("helpers/data_prep_helper.R")
+source("helpers/descriptive_statistics_helper.R")
+```
+
+\begingroup
+\setlength{\tabcolsep}{15pt} 
+\renewcommand{\arraystretch}{1.5} 
+  \begin{tabular}[]{@{}ll@{}}
+    \bf Title:      & Predictive mdelling to forecast Irish hospital waiting list figures \\
+    \bf Author:     & Danny Regan \\
+    \bf Supervisor: & Dr James Connolly \\
+    \bf Degree:     & MSc in Big Data Analytics \\
+    \bf Module:     & Data Science \\
+    \bf Github:     & \url{https://github.com/ancodia/hospital_waiting_lists}
+  \end{tabular}
+\endgroup
+
+# Abstract
+dfbxxfbxf
+
+\newpage
+
+# Introduction
+The volume of patients waiting for hospital procedures and the length of these waits constitute a major shortfall in the Irish public healthcare system. According to the most recent Euro Health Consumer Index [@health_consumer_powerhouse_euro_2018, p.15], Ireland has the longest waiting times in Europe despite having one of the greatest levels of expenditure on health [@oecd_health_2018, p.133]. 
+
+The National Treatment Purchase Fund (NTPF) is the organisation assigned the task by the Irish government of collecting, collating and validating data about individuals who are waiting for treatment in public hospitals. This is the source of data for the current project.
+
+_____A description of the data and steps taken to clean it are the feature of the next section. This data description section also includes justification for choices of statistical methods to aid in answering the research question displayed below. The sections that follow this cover the hypothesis testing to be carried on the waiting list data and reporting and discussion of results obtained from the analysis undertaken.
+
+### Research Question
+The NTPF waiting list data will be used in this project to answer the following research question:
+
+> How accuractely can waiting list figures for the Saolta University Hospital Group be forecasted using predictive modelling?
+
+# Predictive Model Selection
+
+# Build and Evaluate Model
+
+# Model Evaluation
+
+# Model Forecasting and Appraisal
+
+# Conclusions
+fgsdggbfdb
+
+# References
+<div id="refs"></div>
+
+\newpage
+
+# Appendix
+\label{sec:appendix}
+\appendix
+

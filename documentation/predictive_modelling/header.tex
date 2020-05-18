@@ -1,0 +1,16 @@
+\usepackage{titling}
+\usepackage{pdfpages}
+\usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
+\usepackage{threeparttable}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{ragged2e}
+
+\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+\pretitle{%
+  \begin{center}
+  \LARGE
+  \includepdf[pages=-]{cover_sheet.pdf}
+}
+\posttitle{\end{center}}

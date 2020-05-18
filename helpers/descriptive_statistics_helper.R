@@ -39,6 +39,8 @@ time_series_analysis <- function(data, title = ""){
 
 plot_timeseries_data <- function(ts, title){
   # plot the seasonal and trend decomposition using Loess
-  plot(stl(ts, s.window="periodic"), 
+  stl_ts <- stl(ts, s.window="periodic")
+  plot(stl_ts, 
        main = paste("Time Series Decomposition (STL) \n", title))
+  return(stl_ts)
 }
