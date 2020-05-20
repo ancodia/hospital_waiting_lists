@@ -63,9 +63,10 @@ The NTPF waiting list data will be used in this project to answer the following 
 
 # Predictive Model Selection
 
-# Build and Evaluate Model
+# Build and Evaluate Predictive Model Construction
+## Build and Evaluate
 
-# Model Evaluation
+## Model Validation
 
 # Model Forecasting and Appraisal
 
