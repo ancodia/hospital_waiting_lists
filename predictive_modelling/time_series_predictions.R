@@ -33,7 +33,7 @@ abline(reg = lm(saolta_ts ~ time(saolta_ts)))
 
 # use boxplot to check seasonality
 boxplot(saolta_ts ~ cycle(saolta_ts),
-        xlab="Year", 
+        xlab="Month", 
         ylab = "Patients waiting",
         main ="Saolta University Hospital Group Waiting Lists 2014-19")
 # doesn't appear to be seasonal, mean is fairly stable over the course of years
@@ -252,14 +252,22 @@ forecast
 plot_arima_model(forecast)
 
 # check forecasted increase compared to 2019
-actuals_predictions_2020 <- data.frame(as.vector(test), as.vector(forecast$mean))
+actuals_predictions_2020 <- data.frame(test, forecast$mean)
+
+#actuals_predictions_2020 <- data.frame(as.vector(test), as.vector(forecast$mean))
 
 
-percent_change <- ((actuals_predictions_2020[,2] - actuals_predictions_2020[,1]) / 
-                     actuals_predictions_2020[,1]) * 100 
+percent_change <- ((as.vector(actuals_predictions_2020[,2]) - 
+                      as.vector(actuals_predictions_2020[,1])) / 
+                     as.vector(actuals_predictions_2020[,1])) * 100 
 
 actuals_predictions_2020$pct_change <- percent_change
 colnames(actuals_predictions_2020) <- c("2019 (Actual)", "2020 (Forecasted)", "Percentage Change")
 actuals_predictions_2020
 
 mean(actuals_predictions_2020[,3])
+
+str(actuals_predictions_2020)
+
+# plot.ts(cbind(actuals_predictions_2020[,1],
+#               actuals_predictions_2020[,2]), plot.type = "single")

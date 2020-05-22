@@ -27,8 +27,7 @@ knitr::opts_knit$set(root.dir = "/home/danny/MEGA/College/msc_data_analytics/dat
 ```{r include=FALSE}
 library(kableExtra)
 library(dplyr)
-source("helpers/data_prep_helper.R")
-source("helpers/descriptive_statistics_helper.R")
+source("helpers/predictions_helper.R")
 ```
 
 \begingroup
@@ -63,9 +62,76 @@ The NTPF waiting list data will be used in this project to answer the following 
 
 # Predictive Model Selection
 
-# Build and Evaluate Predictive Model Construction
-## Build and Evaluate
+Time series forescasting is the most suitable method for predictive modelling on the waiting list due to its time based nature. The monthly totals of patients waiting for hospital procedures are the main point of interest and ARIMA modelling is fit for this task. This section discusses the preparation of waiting list data for the Saolta University Hospital Group for predictive modelling and includes analysis of the constitution of the data to determine what type of ARIMA model should be implemented.
 
+Combined waiting list data that was created during CA3 is loaded and records for the Saolta University Hospital group extracted from it. The day part of the archive date variable is excluded so that it can be guaranteed that only one record per month is in the resulting dataset. Monthly waiting list totals are then aggregated and the number of rows present is now 72 as expected - 12 months x 6 years (2014-19).
+```{r message=FALSE, warning=FALSE}
+waiting_lists <- read_csv("data_prep/combined_waiting_lists.csv")
+
+saolta <- subset(waiting_lists, Hospital_Group == "Saolta")
+
+saolta$Archive_Date <- format(as.Date(saolta$Archive_Date, 
+                                      format="%Y-%m-%d"), 
+                              "%Y-%m")
+
+saolta <- aggregate(cbind(Total) ~ 
+                      Archive_Date, 
+                    data = saolta, sum)
+nrow(saolta)
+```
+
+To facilitate ARIMA forecasting, the waiting list data is converted to a time series object. A frequency parameter of 12 is used because the time points are monthly in nature and the series starts from January 2014. The content of the time series can be seen below.
+```{r}
+saolta_ts <- ts(saolta$Total, frequency = 12, start = c(2014, 1))
+saolta_ts
+```
+
+There are values for each month so no additional effort is required for cleaning the time series. Figure \@ref(fig:ts-plot) features a plot of the the time series and shows that it is additive, indicated by the consistent growth with no dramatic spikes in the peaks and troughs. The plot shows signs of an upward trend which needs to be investigated further and removed before deciding on which ARIMA model parameters to use. This is handled in the next section. The `graphics::abline()` function provides the straight line in the chart, the data appears to have quite a strong linear relationship between numbers of patients waiting and time. 
+```{r ts-plot, fig.align = "center", fig.cap = "Plot of waiting list time series.", echo=FALSE}
+# Show time series data
+plot(saolta_ts,
+     xlab="Year", 
+     ylab = "Patients waiting",
+     main="Saolta University Hospital Group Waiting Lists 2014-19")
+# linear relationship between number of patients waiting and time
+abline(reg = lm(saolta_ts ~ time(saolta_ts)))
+```
+
+A visual check for seasonality can be achieved with a box plot of the cycles contained in the time series (Figure \@ref(fig:boxplot)). The median monthly value remains reasonably consistant throughout meaning that no stong link between total number of patients on waiting lists and the time of year is present. Statistical validation of this is featured in the \hyperref[sec:build-eval]{model building and evaluation} section in the next part of this document.
+```{r boxplot, fig.align = "center", fig.cap = "Box plot of waiting list time series.", echo=FALSE}
+# use boxplot to check seasonality
+boxplot(saolta_ts ~ cycle(saolta_ts),
+        xlab="Month", 
+        ylab = "Patients waiting",
+        main ="Saolta University Hospital Group Waiting Lists 2014-19")
+```
+
+
+# Build and Evaluate Predictive Model Construction
+This section blah...
+
+## Build and Evaluate
+\label{sec:build-eval}
+
+Figure \@ref(fig:decomposed-ts) features a plot of the decomposed Saolta time series...
+```{r decomposed-ts, fig.align = "center", fig.cap = "Decomposed time series.", echo=FALSE}
+saolta_ts_decomposed <- plot_timeseries_data(saolta_ts, title = "Saolta")
+```
+
+Although the decomposed time series plot (Figure \@ref(fig:decomposed-ts)) appears to reveal seasonality in the data, the box plot of the series (Figure \@ref(fig:boxplot)) tells otherwise. The proportion of variance that each element in the time series makes up can help to determine if there is a higher level of seasonality than excpected:
+```{r}
+apply(saolta_ts_decomposed$time.series, 2, var) / var(saolta_ts)
+```
+Seasonality explains only 0.005% of variance in the time series, confirming the assumption of the lack thereof. The `seastests::isSeasonal()` function also offers a method of checking for seasonality and returns false as anticipated:
+```{r}
+seastests::isSeasonal(saolta_ts)
+```
+
+Trend accounts for almost all variance in the time series so it needs to be removed to make the data stationary and enable ARIMA modelling. Non-stationarity can be visualised by plotting the autocorrelation function (ACF) applied to the data, see \@ref(fig:acf-nodiff). The slow drop off towards 0 seen in the ACF plot demonstrates that the data is not stationary. The ACF of a stationary time series will drop quickly. Differencing must be applied to the data to get in a stationary form.
+
+```{r acf-nodiff, fig.align = "center", fig.cap = "ACF/PACF", echo=FALSE}
+astsa::acf2(saolta_ts, main = "Saolta Waiting Lists Time Series (No diff) ACF/PACF")
+```
 ## Model Validation
 
 # Model Forecasting and Appraisal
