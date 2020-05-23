@@ -81,11 +81,14 @@ astsa::acf2(saolta_ts_diff, main = "Saolta Waiting Lists Time Series ACF/PACF")
 # as it can be run with including drift/trend (already removed with differencing)
 # H0 = time series is not stationary
 summary(urca::ur.df(saolta_ts_diff))
+adf_pvalue <- urca::ur.df(saolta_ts_diff)@testreg[["coefficients"]][1,4]
+adf_pvalue
 # p-value = 0.00027 => time series is stationary 
 
 # Kwiatkowski-Phillips-Schmidt-Shin (KPSS) test 
 # H0 = time series is stationary
-tseries::kpss.test(saolta_ts_diff)
+kpss <- tseries::kpss.test(saolta_ts_diff)
+kpss$p.value
 # p-value > 0.1 => time series is stationary
 
 ######################################################
@@ -201,25 +204,26 @@ evaluation_df
 ### VALIDATION
 # check model predictions
 # plot forecasts for each model
-
 forecast_model1 <- forecast(arima_model1, h = 12)
 forecast_model1
-plot_arima_model(forecast_model1, train, test)
-
+plot_model1 <- plot_arima_model_forecast(forecast_model1)
 
 forecast_model2 <- forecast(arima_model2, h = 12)
 forecast_model2
-plot_arima_model(forecast_model2, train, test)
+plot_model2 <- plot_arima_model_forecast(forecast_model2)
 
 forecast_model3 <- forecast(arima_model3, h = 12)
 forecast_model3
-plot_arima_model(forecast_model3, train, test)
+plot_model3 <- plot_arima_model_forecast(forecast_model3)
 
 auto_forecast <- forecast(auto_arima_model, h = 12)
 auto_forecast
-plot_arima_model(auto_forecast, train, test)
+plot_auto <- plot_arima_model_forecast(auto_forecast)
 
-test
+figure <- ggarrange(plot_model1, plot_model2, plot_model3, plot_auto,
+                    ncol = 2, nrow = 2)
+figure
+
 # make actuals_predicted dataframe
 # for each arima model
 actuals_predictions <- data.frame(cbind(cycle(test), 
@@ -249,7 +253,7 @@ model
 forecast <- forecast(model, h = 12)
 forecast
 
-plot_arima_model(forecast)
+print(plot_arima_model_forecast(forecast))
 
 # check forecasted increase compared to 2019
 actuals_predictions_2020 <- data.frame(test, forecast$mean)
@@ -267,7 +271,31 @@ actuals_predictions_2020
 
 mean(actuals_predictions_2020[,3])
 
-str(actuals_predictions_2020)
+# plot the 2019 vs 2020 values
+values_2019 <- fortify(actuals_predictions_2020[,1], ts.connect = TRUE)
+values_2020 <- fortify(actuals_predictions_2020[,2], ts.connect = TRUE)
 
-# plot.ts(cbind(actuals_predictions_2020[,1],
-#               actuals_predictions_2020[,2]), plot.type = "single")
+col_names <- c("Month", "Total")
+colnames(values_2019) <- col_names
+colnames(values_2020) <- col_names
+
+# convert date to only contain month number
+values_2019$Month <- format(as.Date(values_2019$Month, format="%Y-%m-%d"), "%m")
+values_2020$Month <- format(as.Date(values_2020$Month, format="%Y-%m-%d"), "%m")
+
+values = merge(values_2019, values_2020, by = "Month")
+head(values)
+
+colnames(values) <- c("month", "2019", "2020")
+
+values_melted <- reshape2::melt(values, id.var='month')
+head(values_melted)
+
+values_melted$month <- as.integer(values_melted$month)
+values_melted$value <- as.numeric(values_melted$value)
+
+ggplot(values_melted, aes(x = month, y = value, col = variable)) + geom_line() +
+        xlab("Month") +
+        ylab("Total patients waiting") +
+        ggtitle("2019 (actual) vs 2020 (forecasted)") +
+        scale_x_continuous(breaks = 1:12)
