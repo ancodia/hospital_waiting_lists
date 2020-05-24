@@ -158,19 +158,15 @@ opar <- par(no.readonly = TRUE)
 par(mfrow = c(2, 2))
 hist(arima_model1$residuals, main = "Histogram: ARIMA(1,1,0)", 
      xlab = "Residuals")
-model1_shapiro <- shapiro.test(arima_model1$residuals)
 
 hist(arima_model2$residuals, main = "Histogram: ARIMA(0,1,1)", 
      xlab = "Residuals")
-model2_shapiro <- shapiro.test(arima_model2$residuals)
 
 hist(arima_model3$residuals, main = "Histogram: ARIMA(1,1,1)", 
      xlab = "Residuals")
-model3_shapiro <- shapiro.test(arima_model3$residuals)
 
 hist(auto_arima_model$residuals, main = "Histogram: (Auto) ARIMA(1,1,0) with drift", 
      xlab = "Residuals")
-model_auto_shapiro <- shapiro.test(auto_arima_model$residuals)
 par(opar)
 
 # Use Ljung-Box test
@@ -188,17 +184,13 @@ mape_values <- c(model1_accuracy[, "MAPE"],
                  model2_accuracy[, "MAPE"],
                  model3_accuracy[, "MAPE"],
                  model_auto_accuracy[, "MAPE"])
-shapiro_pvalues <- c(round(model1_shapiro$p.value, 5), 
-                     round(model2_shapiro$p.value, 5), 
-                     round(model3_shapiro$p.value, 5), 
-                     round(model_auto_shapiro$p.value, 5))
 ljung_pvalues <- c(round(model1_ljung$p.value, 5), 
                    round(model2_ljung$p.value, 5), 
                    round(model3_ljung$p.value, 5), 
                    round(model_auto_ljung$p.value, 5))
 
-evaluation_df <- data.frame(model_ids, aic_valules, mape_values, shapiro_pvalues, ljung_pvalues)
-colnames(evaluation_df) <- c("Model", "AIC", "MAPE", "Shapiro-Wilk", "Ljung-box")
+evaluation_df <- data.frame(model_ids, aic_valules, mape_values, ljung_pvalues)
+colnames(evaluation_df) <- c("Model", "AIC", "MAPE", "Ljung-box")
 evaluation_df
 
 ### VALIDATION

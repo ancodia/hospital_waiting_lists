@@ -22,7 +22,7 @@ fontsize: 12pt
 \renewcommand{\footnotesize}{\small \justify}
 
 ```{r setup, include=FALSE}
-knitr::opts_knit$set(root.dir = "/home/danny/MEGA/College/msc_data_analytics/data_science/ca3_4/hospital_waiting_lists")
+knitr::opts_knit$set(root.dir = "/home/danny/College/msc_data_analytics/data_science/ca3_4/hospital_waiting_lists")
 ```
 ```{r include=FALSE}
 library(kableExtra)
@@ -35,7 +35,7 @@ source("helpers/predictions_helper.R")
 \setlength{\tabcolsep}{15pt} 
 \renewcommand{\arraystretch}{1.5} 
   \begin{tabular}[]{@{}ll@{}}
-    \bf Title:      & Forecasing Saolta University Hospital Group waiting list figures \\
+    \bf Title:      & Forecasting Saolta University Hospital Group Waiting List Figures \\
     \bf Author:     & Danny Regan \\
     \bf Supervisor: & Dr James Connolly \\
     \bf Degree:     & MSc in Big Data Analytics \\
@@ -45,27 +45,31 @@ source("helpers/predictions_helper.R")
 \endgroup
 
 # Abstract
-dfbxxfbxf
+This project aims to determine how accurately waiting list figures for the Saolta University Hospital Group can be forecasted through predictive modelling. Time series forecasting with ARIMA modelling was chosen as the method to use for predictions due to the time-based nature of the source data. ARIMA(1,1,0) with drift included was found to offer the greatest accuracy levels after comparison of all model configurations implemented. 
+
+A correlation accuracy of 83% was found between the actual values and those predicted with the ARIMA(1,1,0) with drift model which implies a high level of confidence in the accuracy of predictions. This ARIMA configuration was then used to forecast monthly waiting list totals for 2020. A mean percentage increase of 3.2% was found between the actual totals from 2019 and those forecasted for 2020, indicating that the increasing trend in the data is likely to continue upwards.
 
 \newpage
 
 # Introduction
 The volume of patients waiting for hospital procedures and the length of these waits constitute a major shortfall in the Irish public healthcare system. According to the most recent Euro Health Consumer Index [@health_consumer_powerhouse_euro_2018, p.15], Ireland has the longest waiting times in Europe despite having one of the greatest levels of expenditure on health [@oecd_health_2018, p.133]. 
 
-The National Treatment Purchase Fund (NTPF) is the organisation assigned the task by the Irish government of collecting, collating and validating data about individuals who are waiting for treatment in public hospitals. This is the source of data for the current project.
+The National Treatment Purchase Fund (NTPF) is the organisation assigned the task by the Irish government of collecting, collating and validating data about individuals who are waiting for treatment in public hospitals. This is the source of data for the current project. The objective of this project is to apply predictive modelling to the NTPF waiting list data, evaluate its accuracy and forecast future numbers of patients waiting for hospital procedures. The Saolta University Hospital Group which hospitals in the west and north-west of Ireland will be the subject of this experimentation.
 
-_____sfsdjkds
+The next section (\hyperref[sec:selection]{Predictive Model Selection}) of this document covers the model selection process including justification through analysis and visualisations. Following that in the \hyperref[sec:build-eval]{Build and Evaluate Predictive Model} section is a discussion around the construction and evaluation of the selected predictive model configurations. The accuracy of the forecast returned by the models is documented and the best performing one is identified in the section called \hyperref[sec:validation]{Model Validation}. Finally in the \hyperref[sec:forecasting]{Model Forecasting and Appraisal} section, the chosen model is used to predict future waiting list numbers for the Saolta group and these are compared to the latest year from the source data. All R code referenced in this document is found in `predictive_modelling/time_series_predictions.R` which can be accessed in the Github repository listed on the cover page.
+
 
 ### Research Question
 The NTPF waiting list data will be used in this project to answer the following research question:
 
-> How accuractely can waiting list figures for the Saolta University Hospital Group be forecasted using predictive modelling?
+> How accurately can waiting list figures for the Saolta University Hospital Group be forecasted using predictive modelling?
 
 # Predictive Model Selection
+\label{sec:selection}
+Time series forecasting is the most suitable method for predictive modelling on the waiting list due to its time-based nature. The monthly totals of patients waiting for hospital procedures are the main point of interest and autoregressive integrated moving average (ARIMA) modelling is fit for this task. This section discusses the preparation of waiting list data for the Saolta University Hospital Group for predictive modelling and includes analysis of the constitution of the data to determine what type of ARIMA model should be implemented.
 
-Time series forescasting is the most suitable method for predictive modelling on the waiting list due to its time based nature. The monthly totals of patients waiting for hospital procedures are the main point of interest and ARIMA modelling is fit for this task. This section discusses the preparation of waiting list data for the Saolta University Hospital Group for predictive modelling and includes analysis of the constitution of the data to determine what type of ARIMA model should be implemented.
-
-Combined waiting list data that was created during CA3 is loaded and records for the Saolta University Hospital group extracted from it. The day part of the archive date variable is excluded so that it can be guaranteed that only one record per month is in the resulting dataset. Monthly waiting list totals are then aggregated and the number of rows present is now 72 as expected - 12 months x 6 years (2014-19).
+The combined waiting list data that was created during CA3 is loaded and records for the Saolta University Hospital group extracted from it. The day part of the archive date variable is excluded so that it can be guaranteed that only one record per month is in the resulting dataset. Monthly waiting list totals are then aggregated and the number of rows present is now 72 as expected - 12 months x 6 years (2014-19).
+\small
 ```{r message=FALSE, warning=FALSE}
 waiting_lists <- read_csv("data_prep/combined_waiting_lists.csv")
 
@@ -80,8 +84,8 @@ saolta <- aggregate(cbind(Total) ~
                     data = saolta, sum)
 nrow(saolta)
 ```
-
-To facilitate ARIMA forecasting, the waiting list data is converted to a time series object. A frequency parameter of 12 is used because the time points are monthly in nature and the series starts from January 2014. The content of the time series can be seen in Table \@ref(tab:ts-table) below.
+\normalsize
+To facilitate ARIMA forecasting, the waiting list data is converted to a time series object. A frequency parameter of 12 is used because the time points found in the source data are monthly and the series is set to begin from January 2014. The content of the time series can be seen in Table \@ref(tab:ts-table) below.
 ```{r}
 saolta_ts <- ts(saolta$Total, frequency = 12, start = c(2014, 1))
 ```
@@ -94,7 +98,7 @@ print(ts_table, comment = FALSE, tabular.environment = "tabularx", width="\\text
 
 ```
 
-There are values for each month so no additional effort is required for cleaning the time series. Figure \@ref(fig:ts-plot) features a plot of the the time series and shows that it is additive, indicated by the consistent growth with no dramatic spikes in the peaks and troughs. The plot shows signs of an upward trend which needs to be investigated further and removed before deciding on which ARIMA model parameters to use. This is handled in the next section. The `graphics::abline()` function provides the straight line in the chart, the data appears to have quite a strong linear relationship between numbers of patients waiting and time. 
+There are values for each month so no additional effort is required for cleaning the time series. Figure \@ref(fig:ts-plot) features a plot of the time series. The time series is additive due to the consistent growth with no dramatic spikes in the peaks and troughs. The plot shows signs of an upward trend which needs to be investigated further and removed before deciding on which ARIMA model parameters to use. This is handled in the next section. The `graphics::abline()` function provides the straight line in the chart and indicates that the data has quite a strong linear relationship between numbers of patients waiting and time. 
 ```{r ts-plot, fig.align = "center", fig.cap = "Plot of waiting list time series.", echo=FALSE, out.width="80%"}
 # Show time series data
 plot(saolta_ts,
@@ -105,7 +109,7 @@ plot(saolta_ts,
 abline(reg = lm(saolta_ts ~ time(saolta_ts)))
 ```
 
-A visual check for seasonality can be achieved with a box plot of the cycles contained in the time series (Figure \@ref(fig:boxplot)). The median monthly value remains reasonably consistant throughout meaning that no stong link between total number of patients on waiting lists and the time of year is present. Statistical validation of this is featured in the \hyperref[sec:build-eval]{model building and evaluation} section in the next part of this document.
+A visual check for seasonality can be achieved with a box plot of the cycles contained in the time series (Figure \@ref(fig:boxplot)). The median monthly value remains reasonably consistent throughout meaning that no strong link between total number of patients on waiting lists and the time of year is present. Statistical validation of this is featured in the next \hyperref[sec:build-eval]{section} of this document.
 ```{r boxplot, fig.align = "center", fig.cap = "Box plot of waiting list time series.", echo=FALSE, out.width="80%"}
 # use boxplot to check seasonality
 boxplot(saolta_ts ~ cycle(saolta_ts),
@@ -116,71 +120,88 @@ boxplot(saolta_ts ~ cycle(saolta_ts),
 
 
 # Build and Evaluate Predictive Model
+\label{sec:build-eval}
 This section discusses the steps taken in determining the appropriate parameters to use for ARIMA modelling of the time series data and the construction and evaluation of the resulting models. To build a non-seasonal ARIMA model the following values are required:
-- `p`: the number of autoregressive terms from the autocorrelation function (ACF) - AR order
-- `d`: the number of non-seasonal differences needed to make the time series stationary
-- `q`: the number of lagged forecast errors from the partial autocorrelation function (PACF) - MA order
 
-Initially the value for `d` will be found by verifying that the assumption of non-seasonality is true and then applying differencing to the time series to introduce stationarity. The `p` and `q` values are found by plotting the ACF and PACF of the time series respectively.
+- `p`: the number of autoregressive terms from the autocorrelation function (ACF) - AR order.
+
+- `d`: the number of non-seasonal differences needed to make the time series stationary.
+
+- `q`: the number of lagged forecast errors from the partial autocorrelation function (PACF) - MA order.
+
+Initially, the value for `d` will be found by verifying that the assumption of non-seasonality is true and then applying differencing to the time series to introduce stationarity. The `p` and `q` values are found by plotting the ACF and PACF of the stationary time series respectively.
 
 ## Stationarity and Seasonality
-\label{sec:build-eval}
 Although the decomposed time series plot (Figure \@ref(fig:decomposed-ts)) appears to reveal seasonality in the data, the box plot of the series (Figure \@ref(fig:boxplot)) tells otherwise.
 ```{r decomposed-ts, fig.align = "center", fig.cap = "Decomposed time series.", echo=FALSE, out.width="80%"}
 saolta_ts_decomposed <- plot_timeseries_data(saolta_ts, title = "Saolta")
 ```
 
-The proportion of variance that each element in the time series makes up can help to determine if there is a higher level of seasonality than excpected:
+The proportion of variance that each element in the time series makes up can help to determine if there is a higher level of seasonality than expected:
+\small
 ```{r}
 apply(saolta_ts_decomposed$time.series, 2, var) / var(saolta_ts)
 ```
+\normalsize
 Seasonality explains only 0.005% of variance in the time series, confirming the assumption of the lack thereof. The `seastests::isSeasonal()` function also offers a method of checking for seasonality and returns false as anticipated:
+\small
 ```{r}
 seastests::isSeasonal(saolta_ts)
 ```
-
-Trend accounts for almost all variance in the time series so it needs to be removed to make the data stationary and enable ARIMA modelling. Non-stationarity can be visualised by plotting the autocorrelation function (ACF) applied to the data, see Figure \@ref(fig:acf-nodiff). The slow drop off towards 0 seen in the ACF plot demonstrates that the data is not stationary. The ACF of a stationary time series will drop quickly. Differencing must be applied to the data to get in a stationary form.
+\normalsize
+Trend accounts for almost all variance in the time series so it needs to be removed to make the data stationary and enable ARIMA modelling. Non-stationarity can be visualised by plotting the autocorrelation function (ACF) applied to the data, see Figure \@ref(fig:acf-nodiff). The slow drop off towards 0 seen in the ACF plot demonstrates that the data is not stationary. The ACF of a stationary time series will drop quickly. Differencing must be applied to the data to get it into a stationary form.
 
 ```{r acf-nodiff, echo=FALSE, fig.align="center", fig.cap="ACF/PACF plots of the time series before differencing.", out.width="80%"}
 invisible(astsa::acf2(saolta_ts, main = "Saolta Waiting Lists Time Series (No diff) ACF/PACF"))
 ```
 
-### Making the time series stationary to obtain ARIMA d value
-Differencing must be applied to make it stationary. The `forecast::ndiffs()` function returns an estimation of the number of differences required for stationarity. In this case one difference is the value returned:
+### Find the ARIMA d value
+Differencing must be applied to the time series to make it stationary, the ARIMA `d` value is the number of differences required. The `forecast::ndiffs()` function returns an estimation of how many times differencing should be applied for stationarity to be introduced. In this case, one difference is the value returned:
+\small
 ```{r}
 ndiffs(saolta_ts)
 ```
-
+\normalsize
 To apply differencing to the time series, the `diff()` function is applied:
+\small
 ```{r}
 saolta_ts_diff <- diff(saolta_ts, differences = 1)
 ```
-The plot of the the differenced time series is shown in Figure \@ref(fig:ts-diffed) and appears to be stationary. Running `ndiffs()` on the differenced time series now shows that no more differences are necessary for stationarity:
+\normalsize
+
+\newpage
+The plot of the differenced time series is shown in Figure \@ref(fig:ts-diffed) and appears to be stationary. Running `ndiffs()` on the differenced time series now shows that no more differences are necessary for stationarity:
+\small
 ```{r}
 ndiffs(saolta_ts_diff)
 ```
-
+\normalsize
 ```{r ts-diffed, fig.align = "center", fig.cap = "Differenced time series.", echo=FALSE, out.width="80%"}
 plot(saolta_ts_diff, type = "l", main = "Differenced Saolta Time Series")
 ```
 
 To verify that the time series is now stationary, the Augmented Dickey-Fuller (ADF) and Kwiatkowski-Phillips-Schmidt-Shin (KPSS) tests are applied. The $H_0$ for ADF is that the time series is not stationary, while $H_0$ for KPSS is that it is stationary.
 
-ADF (note: using from `urca` package rather than `tseries` version as it can be run with including drift/trend (already removed with differencing):
-```{r}
+ADF (note: using the ADF function from the `urca` package rather than the `tseries` version as it can be run with including drift/trend (already removed with differencing):
+\small
+```{r size="small"}
 adf_pvalue <- urca::ur.df(saolta_ts_diff)@testreg[["coefficients"]][1,4]
 adf_pvalue
 ```
+\normalsize
 p-value is 0.00027 so the null hypothesis of non-stationarity can be rejected.
 
+\newpage
 KPSS:
+\small
 ```{r}
 kpss <- tseries::kpss.test(saolta_ts_diff)
 kpss$p.value
 ```
+\normalsize
 A p-value of greater than 0.1 means that the null hypothesis cannot be rejected thus confirming that the time series is in a stationary state. 
 
-This one required difference gives the optimum `d` value of 1 for the ARIMA model.
+This one required difference gives an optimum `d` value of 1 for the ARIMA model.
 
 ### ARIMA p and q values from ACF/PACF
 When the ACF and PACF are plotted for the differenced time series (Figure \@ref(fig:acf-diffed)), they both quickly drops below the dotted line indicating that the majority of values are not significantly different from 0. The `p` and `q` values can now be taken from this plot, both cut off after 1 lag so this is the value assigned to both. Along with the `d` value of 1, this provides three possible ARIMA(p,d,q) configurations: ARIMA(1,1,0), ARIMA(0,1,1) and ARIMA(1,1,1).
@@ -188,25 +209,23 @@ When the ACF and PACF are plotted for the differenced time series (Figure \@ref(
 invisible(astsa::acf2(saolta_ts_diff, main = "Saolta Waiting Lists Time Series ACF/PACF"))
 ```
 ### Build Models
-Using the parameters found above, three ARIMA models will be implemented and `forecast::auto.arima()` is then used to evaluate the if the parameters are correct. The original time series must first be split into train and test sets. The training time series includes all cycles from 2014 to 2018, while the test set is made up of all 2019 data.
+Using the parameters found above, three ARIMA models will be implemented and `forecast::auto.arima()` is then used to evaluate if the parameters provided are correct. The original time series must first be split into train and test sets. The training time series includes all cycles from 2014 to 2018, while the test set is made up of all 2019 data.
+\small
 ```{r}
 train <- window(x = saolta_ts, start = c(2014, 1), end = c(2018, 12))
 test <- window(x = saolta_ts, start = c(2019, 1), end = c(2019, 12))
 ```
-
+\normalsize
 The training data is used to fit the ARIMA models:
+\small
 ```{r}
 arima_model1 = forecast::Arima(train, order = c(1, 1, 0))
 arima_model2 = forecast::Arima(train, order = c(0, 1, 1))
 arima_model3 = forecast::Arima(train, order = c(1, 1, 1))
 auto_arima_model <- auto.arima(train)
 ```
-
-The model calculated by `auto.arima()` is ARIMA(1,1,0) with drift. This drift is the amount of change over time and uses the average change seen in historical data. Drift was not considered during the manual model specification but makes sense with the nature of the time series under investigation. The ARIMA parameters (1,1,0) match that of the first manually specified one, providing additional confidence that the process was completed correctly. Comparison of these models is the focus of the next section.
-
-# Model Validation
-The following outlines the methods used to evaluate the accuracy of the models proposed in the previous section and determine the best fit for forecasting waiting list totals.
-
+\normalsize
+The model calculated by `auto.arima()` is ARIMA(1,1,0) with drift. This drift is the amount of change over time and uses the average change seen in historical data. Drift was not considered during the manual model specification but makes sense with the nature of the time series under investigation. The ARIMA parameters (1,1,0) match that of the first manually specified one, providing additional confidence that the earlier process in determining these parameters was completed correctly. Comparison of these models is the focus of the next section.
 
 ```{r qq-plots, echo=FALSE, fig.align="center", fig.cap="Quantile-Quantile plots for each ARIMA model.", out.width="80%"}
 opar <- par(no.readonly = TRUE)
@@ -225,25 +244,26 @@ qqnorm(auto_arima_model$residuals, main = "Q-Q Plot: (Auto) ARIMA(1,1,0) with dr
 qqline(auto_arima_model$residuals)
 par(opar)
 ```
+# Model Validation
+\label{sec:validation}
+The following outlines the methods used to evaluate the accuracy of the models proposed in the previous section and determine the best fit for forecasting waiting list totals.
+
+The residuals of each ARIMA model are used to check the models for the presence of normal distributions. Quantile-Quantile plots for each model are featured in Figure \@ref(fig:qq-plots) while in Figure \@ref(fig:histograms) histograms are the other form of visualisation utilised. From visually inspecting these plots, all implemented ARIMA models appear to be normally distributed. The Ljung-box test  which checks for randomness in ARIMA residuals was performed on each set of residuals with p-values recorded in Table \@ref(tab:evaluation-metrics). These are all greater than 0.05 meaning that the residuals are independent of each other which is the anticipated result.
 
 ```{r histograms, echo=FALSE, fig.align="center", fig.cap="Histograms for each ARIMA model.", out.width="80%"}
 opar <- par(no.readonly = TRUE)
 par(mfrow = c(2, 2))
 hist(arima_model1$residuals, main = "Histogram: ARIMA(1,1,0)", 
      xlab = "Residuals")
-model1_shapiro <- shapiro.test(arima_model1$residuals)
 
 hist(arima_model2$residuals, main = "Histogram: ARIMA(0,1,1)", 
      xlab = "Residuals")
-model2_shapiro <- shapiro.test(arima_model2$residuals)
 
 hist(arima_model3$residuals, main = "Histogram: ARIMA(1,1,1)", 
      xlab = "Residuals")
-model3_shapiro <- shapiro.test(arima_model3$residuals)
 
-hist(auto_arima_model$residuals, main = "Histogram: (Auto) ARIMA(1,1,0) with drift", 
+hist(auto_arima_model$residuals, main = "Histogram: (Auto) ARIMA(1,1,0)\n with drift", 
      xlab = "Residuals")
-model_auto_shapiro <- shapiro.test(auto_arima_model$residuals)
 par(opar)
 ```
 
@@ -277,34 +297,35 @@ model3_ljung <- Box.test(arima_model3$residuals, type = "Ljung-Box")
 model_auto_ljung <- Box.test(auto_arima_model$residuals, type = "Ljung-Box")
 
 
-# create dataframe with evaluation metrics
 model_ids <- c("ARIMA(1,1,0)", "ARIMA(0,1,1)", "ARIMA(1,1,1)", "(Auto) ARIMA(1,1,0) w/ drift")
 aic_valules <- c(arima_model1$aic, arima_model2$aic, arima_model3$aic, auto_arima_model$aic)
 mape_values <- c(model1_accuracy[, "MAPE"],
                  model2_accuracy[, "MAPE"],
                  model3_accuracy[, "MAPE"],
                  model_auto_accuracy[, "MAPE"])
-shapiro_pvalues <- c(round(model1_shapiro$p.value, 5), 
-                     round(model2_shapiro$p.value, 5), 
-                     round(model3_shapiro$p.value, 5), 
-                     round(model_auto_shapiro$p.value, 5))
 ljung_pvalues <- c(round(model1_ljung$p.value, 5), 
                    round(model2_ljung$p.value, 5), 
                    round(model3_ljung$p.value, 5), 
                    round(model_auto_ljung$p.value, 5))
 
-evaluation_df <- data.frame(model_ids, aic_valules, mape_values, shapiro_pvalues, ljung_pvalues)
-colnames(evaluation_df) <- c("Model", "AIC", "MAPE", "Shapiro-Wilk", "Ljung-box")
+evaluation_df <- data.frame(model_ids, aic_valules, mape_values, ljung_pvalues)
+colnames(evaluation_df) <- c("Model", "AIC", "MAPE", "Ljung-box")
 ```
+
+## Prediction Accuracy
+Akaike information criterion (AIC) and the mean absolute percentage error (MAPE) for each of the four models are found in Table \@ref(tab:evaluation-metrics). The `auto.arima()` generated model (ARIMA(1,1,0) w/ drift) performs best based on both metrics i.e. it has the lowest score for each. This means this model is expected to have the most accurate predictions. 
+
+Predictions for 2019 using each model were calculated with the `forecast::forecast()` method. Plots for each of these forecasts are displayed in Figure \@ref(fig:forecasts). The ARIMA(1,1,0) w/ drift model's plot looks to be the most accurate due to the inclusion of drift, capturing the general upward growth found in the time series. Whereas each of the other model's mean forecasted values are almost horizontal. The mean forecasted results, as well as the actual figures for each month can be inspected in Table \@ref(tab:actuals-preds). 
+
+Correlation accuracy measures for the predictions are listed in Table \@ref(tab:corr-accuracy). All but the model with drift applied were found to be negatively correlated which contradicts the actual waiting list figures for 2019. With these findings, the ARIMA(1,1,0) w/ drift model is selected for forecasting future values in the next section.
 
 ```{r evaluation-metrics, echo=FALSE}
 kable(evaluation_df, 
       format="latex", booktabs=TRUE, caption = "Evaluation metrics for each implemented ARIMA model.") %>% 
   kable_styling() %>%
-   add_footnote("Note: Values listed for Shapiro-Wilk and Ljung-box are p-values.", notation = "none")
+   add_footnote("Note: Values listed  for Ljung-box are p-values.", notation = "none")
 ```
 
-## Prediction Accuracy
 ```{r include=FALSE}
 forecast_model1 <- forecast(arima_model1, h = 12)
 forecast_model1
@@ -333,7 +354,7 @@ colnames(actuals_predictions) <- c("2019",
 
 correlation_accuracy <- cor(actuals_predictions[-1])
 ```
-```{r  forecasts, echo=FALSE, fig.align="center", fig.cap="Forecast plots for each ARIMA configuration (2019).", warning=FALSE}
+```{r  forecasts, echo=FALSE, fig.align="center", fig.cap="Forecast plots for each ARIMA configuration (2019).", warning=FALSE, out.width="90%"}
 plot_model1 <- plot_arima_model_forecast(forecast_model1)
 plot_model2 <- plot_arima_model_forecast(forecast_model2)
 plot_model3 <- plot_arima_model_forecast(forecast_model3)
@@ -358,9 +379,14 @@ kable(correlation_accuracy,
   kable_styling(latex_options = "scale_down")
 ```
 
-
+\newpage
 # Model Forecasting and Appraisal
-```{r echo=FALSE, message=FALSE}
+\label{sec:forecasting}
+The final stage in this project involves using the most suitable ARIMA model found from the previously performed validation to forecast future waiting list totals for the Saolta University Hospital Group. This forecasting will use the ARIMA(1,1,0) w/ drift model fitted with the entire original time series (2014-19) to predict monthly values for 2020.
+
+The generated forecast is plotted in Figure \@ref(fig:forecast2) with the corresponding 2020 forecasted totals compared to 2019 actuals detailed in Table \@ref(tab:forecast-2020). The mean percentage difference when comparing forecasted to actual is 3.202441%, meaning the model is predicting the upward trend in the number of patients waiting to continue growing. The cycles of the 2019 time series are plotted those from the forecasts for 2020 in Figure \@ref(fig:forecast-2020-comparison), visually representing the predicted difference.
+
+```{r message=FALSE, include=FALSE}
 model <- auto.arima(saolta_ts)
 model
 ```
@@ -368,7 +394,7 @@ model
 forecast <- forecast(model, h = 12)
 forecast
 ```
-```{r forecast2, echo=FALSE, warning=FALSE, fig.cap="Forecast plot for 2020 patient numbers."}
+```{r forecast2, echo=FALSE, warning=FALSE, fig.align="center", fig.cap="Forecast plot for 2020 patient numbers.", out.width="70%"}
 plot <- plot_arima_model_forecast(forecast)
 plot
 ```
@@ -396,12 +422,7 @@ kable(actuals_predictions_2020,
   kable_styling(font_size = 10)
 ```
 
-The mean percentage change is:
-```{r echo=FALSE}
-mean(actuals_predictions_2020[,3])
-```
-
-```{r forecast-2020-plot, echo=FALSE, warning=FALSE, fig.cap="2019 (actual) vs 2020 (forecasted)."}
+```{r message=FALSE, include=FALSE}
 # plot the 2019 vs 2020 values
 values_2019 <- fortify(actuals_predictions_2020[,1], ts.connect = TRUE)
 values_2020 <- fortify(actuals_predictions_2020[,2], ts.connect = TRUE)
@@ -424,7 +445,9 @@ head(values_melted)
 
 values_melted$month <- as.integer(values_melted$month)
 values_melted$value <- as.numeric(values_melted$value)
+```
 
+```{r forecast-2020-comparison, echo=FALSE, fig.align="center", warning=FALSE, fig.cap="2019 (actual) vs 2020 (forecasted).", out.width="80%"}
 ggplot(values_melted, aes(x = month, y = value, col = variable)) + geom_line() +
         xlab("Month") +
         ylab("Total patients waiting") +
@@ -432,15 +455,15 @@ ggplot(values_melted, aes(x = month, y = value, col = variable)) + geom_line() +
         scale_x_continuous(breaks = 1:12)
 ```
 
+\newpage
 # Conclusions
-fgsdggbfdb
+The purpose of this project was to determine how accurately waiting list figures for the Saolta University Hospital Group can be forecasted using predictive modelling. ARIMA forecasting was determined to be the best fit for generating predictions from the time-based source data. Inspection of the time series created from the NTPF waiting list data revealed an upward trend but no strong seasonality in the data.
+
+To find the parameters required for proposing ARIMA models, first non-seasonal differencing was applied to the time series to obtain `d` and `p` and `q` values were found by plotting the ACF and PACF applied to the differenced time series. Three models were proposed from these parameters; ARIMA(1,1,0), ARIMA(1,1,1) and ARIMA(0,1,1), while the R `auto.arima()` function generated a fourth model, ARIMA(1,1,0) w/ drift. Evaluation of the group of models revealed that the automatically generated model provided the lowest level of prediction error and so was determined as the best choice for forecasting future values. The correlation accuracy can be used to answer the stated research question, with the ARIMA(1,1,0) w/ drift model giving a value of 83% which represents a strong level of prediction accuracy.
+
+Finally, the chosen ARIMA configuration was used to forecast monthly waiting list totals for 2020. The mean percentage increase from 2019 to 2020 was calculated as 3.2% which if accurate would imply that the upward trend present in the existing data is set to continue to grow.
 
 # References
 <div id="refs"></div>
 
-\newpage
-
-# Appendix
-\label{sec:appendix}
-\appendix
 

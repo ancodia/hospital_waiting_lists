@@ -22,7 +22,7 @@ fontsize: 12pt
 \renewcommand{\footnotesize}{\small \justify}
 
 ```{r setup, include=FALSE}
-knitr::opts_knit$set(root.dir = "/home/danny/MEGA/College/msc_data_analytics/data_science/ca3/hospital_waiting_lists")
+knitr::opts_knit$set(root.dir = "/home/danny/College/msc_data_analytics/data_science/ca3/hospital_waiting_lists")
 ```
 ```{r include=FALSE}
 library(kableExtra)
